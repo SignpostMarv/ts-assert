@@ -2,7 +2,13 @@
     "type": "module",
     "name": "@signpostmarv/ts-assert",
     "description": "TypeScript Assertions",
-    "repository": "https://github.com/SignpostMarv/ts-assert.git",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SignpostMarv/ts-assert.git"
+    },
+    "scripts": {
+        "test": "ts-node ./tests.ts"
+    },
     "exports": {
         ".": "./generated/assertions.js"
     },

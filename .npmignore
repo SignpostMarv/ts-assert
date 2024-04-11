@@ -1,0 +1,17 @@
+/coverage/**/*
+/.idea/**/*
+/**/*.ts
+!/**/*.d.ts
+/generated/.eslintcache
+/.eslintcache
+/tests/**/*
+/tests.*
+/generate.*
+/lib/**/*
+/Makefile
+/.editorconfig
+/.eslintignore
+/.prettierignore
+/.prettierrc
+/.devcontainer/**/*
+/**/*.json
