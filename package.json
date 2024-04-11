@@ -10,7 +10,7 @@
         "test": "ts-node ./tests.ts"
     },
     "exports": {
-        ".": "./generated/assertions.js"
+        ".": "./generated/assertions.ts"
     },
     "devDependencies": {
         "@types/eslint": "^8.56.7",

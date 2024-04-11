@@ -1,7 +1,9 @@
 /coverage/**/*
 /.idea/**/*
 /**/*.ts
-!/**/*.d.ts
+/**/*.js
+/**/*.js.map
+!/generated/assertions.ts
 /generated/.eslintcache
 /.eslintcache
 /tests/**/*
