@@ -9,6 +9,7 @@ Code-generated assertions for TypeScript type guarding functions.
 
 ```ts
 import {describe, it} from 'node:test';
+import assert from 'node:assert/strict';
 import ts_assert from '@signpostmarv/ts-assert';
 import ts from 'typescript';
 
