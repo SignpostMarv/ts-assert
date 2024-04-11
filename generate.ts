@@ -104,6 +104,9 @@ const nodes = [
 			)
 		}
 	)),
+	/**
+	 * @todo replace this with a well-typed export const + default
+	 */
 	ts.factory.createExportAssignment(
 		[
 			ts.factory.createModifier(ts.SyntaxKind.DefaultKeyword),
