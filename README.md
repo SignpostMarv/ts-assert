@@ -1,3 +1,6 @@
+[![Coverage Status](https://coveralls.io/repos/github/SignpostMarv/ts-assert/badge.svg?branch=main)](https://coveralls.io/github/SignpostMarv/ts-assert?branch=main)
+[![Workflow Status](https://github.com/SignpostMarv/ts-assert/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/SignpostMarv/ts-assert/actions/workflows/ci.yml?query=branch%3Amain)
+
 # @signpostmarv/ts-assert
 
 Code-generated assertions for TypeScript type guarding functions.
