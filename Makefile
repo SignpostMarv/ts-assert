@@ -35,3 +35,6 @@ lint-fix:
 	@./node_modules/.bin/prettier . --write
 	@echo 'fixing eslint issues'
 	@./node_modules/.bin/eslint --cache './*.ts' lib tests --fix
+
+publish:
+	@npm config set git-tag-version=false && npm version $(git describe --tags) && npm publish --tag develop
