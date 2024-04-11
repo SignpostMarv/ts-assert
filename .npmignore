@@ -1,15 +1,14 @@
 /coverage/**/*
 /.idea/**/*
 /**/*.ts
+/**/*.js.map
 !/**/*.d.ts
-!/generated/assertions.ts
 /generated/.eslintcache
 /.eslintcache
 /tests/**/*
 /tests.*
 /generate.*
 /lib/assertables.*
-!/lib/main.ts
 /Makefile
 /.editorconfig
 /.eslintignore
