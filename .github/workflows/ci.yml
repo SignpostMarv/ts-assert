@@ -1,0 +1,14 @@
+name: CI
+on:
+    push:
+    pull_request:
+        branches: [main]
+
+jobs:
+	basic-checks:
+		runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+			- uses: devcontainers/ci@v0.3
+			  with:
+			  	runCmd: make lint
