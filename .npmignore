@@ -8,7 +8,8 @@
 /tests/**/*
 /tests.*
 /generate.*
-/lib/**/*
+/lib/assertables.*
+!/lib/main.ts
 /Makefile
 /.editorconfig
 /.eslintignore
