@@ -2,6 +2,7 @@
 /.idea/**/*
 /**/*.ts
 !/**/*.d.ts
+!/generated/assertions.ts
 /generated/.eslintcache
 /.eslintcache
 /tests/**/*
