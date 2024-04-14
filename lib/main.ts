@@ -1,9 +1,11 @@
 import generated, {
 	isExpression,
+	isIdentifier,
 } from '../generated/assertions';
 import assert from 'node:assert/strict';
 import ts, {
 	FalseLiteral,
+	Identifier,
 	Node,
 	TrueLiteral,
 	TypeNode,
@@ -32,8 +34,25 @@ export function isTokenWithExpectedKind(
 	assert.equal(maybe.kind, expected_kind, message);
 }
 
+export function isExpectedIdentifier<T = string>(
+	maybe:Node,
+	expected:T,
+	message?:string|Error
+): asserts maybe is Identifier & {escapedText: T} {
+	isIdentifier(maybe, message);
+	assert.equal(maybe.escapedText, expected, message);
+}
+
+export function isUndefined(
+	maybe:Node
+): asserts maybe is Identifier & {escapedText: 'undefined'} {
+	isExpectedIdentifier(maybe, 'undefined');
+}
+
 export default {
 	...generated,
 	isBooleanLiteral,
 	isTokenWithExpectedKind,
+	isExpectedIdentifier,
+	isUndefined,
 };

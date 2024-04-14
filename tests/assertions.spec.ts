@@ -139,3 +139,68 @@ void describe('isTokenWithExpectedKind', () => {
 		));
 	})
 })
+
+void describe('isExpectedIdentifier', () => {
+	void it('throws', () => {
+		assert.throws(
+			() => ts_assert.isExpectedIdentifier(
+				ts.factory.createStringLiteral('foo'),
+				'bar',
+			),
+			{
+				message: 'expected Identifier, received StringLiteral',
+			}
+		);
+		assert.throws(
+			() => ts_assert.isExpectedIdentifier(
+				ts.factory.createIdentifier('foo'),
+				'bar',
+			),
+			{
+				message: [
+					'Expected values to be strictly equal:',
+					'\'foo\' !== \'bar\'\n',
+				].join('\n\n'),
+			}
+		);
+	})
+	void it('does not throw', () => {
+		assert.doesNotThrow(() => ts_assert.isExpectedIdentifier(
+			ts.factory.createIdentifier('foo'),
+			'foo'
+		));
+	})
+})
+
+void describe('isUndefined', () => {
+	void it('throws', () => {
+
+		assert.throws(
+			() => ts_assert.isUndefined(
+				ts.factory.createStringLiteral('foo')
+			),
+			{
+				message: 'expected Identifier, received StringLiteral',
+			}
+		);
+		assert.throws(
+			() => ts_assert.isUndefined(
+				ts.factory.createIdentifier('foo')
+			),
+			{
+				message: [
+					'Expected values to be strictly equal:',
+					'+ actual - expected',
+					'',
+					'+ \'foo\'',
+					'- \'undefined\'',
+				].join('\n'),
+			}
+		);
+	})
+	void it('does not throw', () => {
+		assert.doesNotThrow(() => ts_assert.isUndefined(
+			ts.factory.createIdentifier('undefined')
+		));
+	})
+})
