@@ -80,7 +80,7 @@ void describe('isIdentifier', () => {
 				ts.factory.createStringLiteral('foo')
 			),
 			{
-				message: 'expected Identifier receieved StringLiteral',
+				message: 'expected Identifier, received StringLiteral',
 			}
 		);
 	});

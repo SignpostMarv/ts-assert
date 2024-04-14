@@ -46,7 +46,7 @@ const nodes = [
 				ts.factory.createTemplateHead(
 					`expected ${
 						declaration.type.type.typeName.text
-					} receieved `
+					}, received `
 				),
 				[
 					ts.factory.createTemplateSpan(
