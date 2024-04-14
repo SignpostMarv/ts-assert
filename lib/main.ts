@@ -44,9 +44,10 @@ export function isExpectedIdentifier<T = string>(
 }
 
 export function isUndefined(
-	maybe:Node
+	maybe:Node,
+	message?:string|Error
 ): asserts maybe is Identifier & {escapedText: 'undefined'} {
-	isExpectedIdentifier(maybe, 'undefined');
+	isExpectedIdentifier(maybe, 'undefined', message);
 }
 
 export default {
