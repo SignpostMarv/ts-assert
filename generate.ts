@@ -42,6 +42,29 @@ const nodes = [
 	),
 	...(assertables.map(
 		declaration => {
+			const default_message = ts.factory.createTemplateExpression(
+				ts.factory.createTemplateHead(
+					`expected ${
+						declaration.type.type.typeName.text
+					} receieved `
+				),
+				[
+					ts.factory.createTemplateSpan(
+						ts.factory.createElementAccessExpression(
+							ts.factory.createPropertyAccessExpression(
+								ts.factory.createIdentifier('ts'),
+								'SyntaxKind'
+							),
+							ts.factory.createPropertyAccessExpression(
+								ts.factory.createIdentifier('node'),
+								'kind'
+							)
+						),
+						ts.factory.createTemplateTail('')
+					),
+				]
+			);
+
 			return ts.factory.createFunctionDeclaration(
 				[ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
 				undefined,
@@ -66,11 +89,7 @@ const nodes = [
 							ts.factory.createTypeReferenceNode('string'),
 							ts.factory.createTypeReferenceNode('Error'),
 						]),
-						ts.factory.createStringLiteral(
-							`node is not a ${
-								declaration.type.type.typeName.text
-							}`
-						),
+						default_message,
 					),
 				],
 				ts.factory.createTypePredicateNode(
