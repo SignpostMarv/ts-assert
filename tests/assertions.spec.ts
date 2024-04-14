@@ -75,8 +75,9 @@ for (const declaration of assertables) {
 
 void describe('isIdentifier', () => {
 	void it('throws', () => {
-		assert.throws(() => ts_assert.isIdentifier(
-			ts.factory.createStringLiteral('foo')
+		assert.throws(
+			() => ts_assert.isIdentifier(
+				ts.factory.createStringLiteral('foo')
 			),
 			{
 				message: 'expected Identifier receieved StringLiteral',
