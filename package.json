@@ -13,6 +13,7 @@
     "exports": {
         ".": "./lib/main.js"
     },
+    "types": "./lib/main.d.ts",
     "devDependencies": {
         "@types/eslint": "^8.56.7",
         "@types/glob": "^8.1.0",
