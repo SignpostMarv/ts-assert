@@ -16,3 +16,4 @@
 /.prettierrc
 /.devcontainer/**/*
 /**/*.json
+/.github/
