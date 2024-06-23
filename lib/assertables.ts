@@ -16,11 +16,11 @@ const ast = ts.createSourceFile(
 	ts.ScriptTarget.Latest,
 	false,
 	ts.ScriptKind.TS
-).statements.filter(e => ts.isModuleDeclaration(e));
+).statements.filter((e): e is ModuleDeclaration => ts.isModuleDeclaration(e));
 
 assert.equal(ast.length, 1, 'Could not obtain typescript module AST');
 
-const module_body = (ast[0] as ModuleDeclaration).body;
+const module_body = ast[0].body;
 
 assert.equal(
 	!!module_body && !!ts.isModuleBlock(module_body),
