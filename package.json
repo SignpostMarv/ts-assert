@@ -7,6 +7,7 @@
         "type": "git",
         "url": "git+https://github.com/SignpostMarv/ts-assert.git"
     },
+    "funding": "https://github.com/SignpostMarv/ts-assert?sponsor=1",
     "scripts": {
         "test": "ts-node ./tests.ts"
     },
