@@ -101,6 +101,7 @@ import ts, {
 	JSDocEnumTag,
 	JSDocFunctionType,
 	JSDocImplementsTag,
+	JSDocImportTag,
 	JSDocLink,
 	JSDocLinkCode,
 	JSDocLinkPlain,
@@ -1185,6 +1186,15 @@ export function isJSDocImplementsTag(
 		| Error = `expected JSDocImplementsTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocImplementsTag {
 	assert.equal(ts.isJSDocImplementsTag(node), true, message);
+}
+
+export function isJSDocImportTag(
+	node: Node,
+	message:
+		| string
+		| Error = `expected JSDocImportTag, received ${ts.SyntaxKind[node.kind]}`,
+): asserts node is JSDocImportTag {
+	assert.equal(ts.isJSDocImportTag(node), true, message);
 }
 
 export function isJSDocLink(
@@ -2686,6 +2696,7 @@ export default {
 	isJSDocEnumTag,
 	isJSDocFunctionType,
 	isJSDocImplementsTag,
+	isJSDocImportTag,
 	isJSDocLink,
 	isJSDocLinkCode,
 	isJSDocLinkPlain,
