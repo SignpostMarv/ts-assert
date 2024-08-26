@@ -15,7 +15,7 @@ const ast = ts.createSourceFile(
 	(await readFile(`${import.meta.dirname}/../node_modules/typescript/lib/typescript.d.ts`)).toString(),
 	ts.ScriptTarget.Latest,
 	false,
-	ts.ScriptKind.TS
+	ts.ScriptKind.TS,
 ).statements.filter((e): e is ModuleDeclaration => ts.isModuleDeclaration(e));
 
 assert.equal(ast.length, 1, 'Could not obtain typescript module AST');
@@ -25,7 +25,7 @@ const module_body = ast[0].body;
 assert.equal(
 	!!module_body && !!ts.isModuleBlock(module_body),
 	true,
-	'Could not obtain module body!'
+	'Could not obtain module body!',
 );
 
 const {statements} = module_body as ModuleBlock;
@@ -37,7 +37,7 @@ type named_function = (
 const functions:named_function[] = statements.filter(
 	(e): e is named_function => {
 		return ts.isFunctionDeclaration(e) && !!e.name;
-	}
+	},
 );
 
 type assertable_function<
@@ -114,7 +114,7 @@ export const assertables:assertable_function[] = functions.filter(
 			&& ts.isIdentifier(e.type.parameterName)
 			&& e.parameters[0].name.text === e.type.parameterName.text
 		);
-	}
+	},
 ).sort((a, b) => {
 	return a.name.text.localeCompare(b.name.text);
 });

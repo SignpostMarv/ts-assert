@@ -66,7 +66,7 @@ for (const declaration of assertables) {
 						? override_throws_test_arg[
 							name as keyof typeof override_throws_test_arg
 						]
-						: ts.factory.createStringLiteral('foo')
+						: ts.factory.createStringLiteral('foo'),
 				))
 			});
 		});
@@ -77,11 +77,11 @@ void describe('isIdentifier', () => {
 	void it('throws', () => {
 		assert.throws(
 			() => ts_assert.isIdentifier(
-				ts.factory.createStringLiteral('foo')
+				ts.factory.createStringLiteral('foo'),
 			),
 			{
 				message: 'expected Identifier, received StringLiteral',
-			}
+			},
 		);
 	});
 });
@@ -89,7 +89,7 @@ void describe('isIdentifier', () => {
 void describe('isEmptyBindingPattern', () => {
 	void it('throws', () => {
 		assert.throws(() => ts_assert.isEmptyBindingPattern(
-			ts.factory.createIdentifier('foo')
+			ts.factory.createIdentifier('foo'),
 		));
 	})
 })
@@ -98,25 +98,25 @@ void describe('isBooleanLiteral', () => {
 	void it ('throws', () => {
 		assert.throws(() => ts_assert.isBooleanLiteral(
 			ts.factory.createStringLiteral('foo'),
-			true
+			true,
 		));
 		assert.throws(() => ts_assert.isBooleanLiteral(
 			ts.factory.createFalse(),
-			true
+			true,
 		));
 		assert.throws(() => ts_assert.isBooleanLiteral(
 			ts.factory.createTrue(),
-			false
+			false,
 		));
 	})
 	void it('does not throw', () => {
 		assert.doesNotThrow(() => ts_assert.isBooleanLiteral(
 			ts.factory.createTrue(),
-			true
+			true,
 		));
 		assert.doesNotThrow(() => ts_assert.isBooleanLiteral(
 			ts.factory.createFalse(),
-			false
+			false,
 		));
 	})
 })
@@ -125,17 +125,17 @@ void describe('isTokenWithExpectedKind', () => {
 	void it('throws', () => {
 		assert.throws(() => ts_assert.isTokenWithExpectedKind(
 			ts.factory.createStringLiteral('foo'),
-			ts.SyntaxKind.StringKeyword
+			ts.SyntaxKind.StringKeyword,
 		));
 		assert.throws(() => ts_assert.isTokenWithExpectedKind(
 			ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
-			ts.SyntaxKind.NumberKeyword
+			ts.SyntaxKind.NumberKeyword,
 		));
 	})
 	void it('does not throw', () => {
 		assert.doesNotThrow(() => ts_assert.isTokenWithExpectedKind(
 			ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
-			ts.SyntaxKind.StringKeyword
+			ts.SyntaxKind.StringKeyword,
 		));
 	})
 })
@@ -149,7 +149,7 @@ void describe('isExpectedIdentifier', () => {
 			),
 			{
 				message: 'expected Identifier, received StringLiteral',
-			}
+			},
 		);
 		assert.throws(
 			() => ts_assert.isExpectedIdentifier(
@@ -161,13 +161,13 @@ void describe('isExpectedIdentifier', () => {
 					'Expected values to be strictly equal:',
 					'\'foo\' !== \'bar\'\n',
 				].join('\n\n'),
-			}
+			},
 		);
 	})
 	void it('does not throw', () => {
 		assert.doesNotThrow(() => ts_assert.isExpectedIdentifier(
 			ts.factory.createIdentifier('foo'),
-			'foo'
+			'foo',
 		));
 	})
 })
@@ -177,15 +177,15 @@ void describe('isUndefined', () => {
 
 		assert.throws(
 			() => ts_assert.isUndefined(
-				ts.factory.createStringLiteral('foo')
+				ts.factory.createStringLiteral('foo'),
 			),
 			{
 				message: 'expected Identifier, received StringLiteral',
-			}
+			},
 		);
 		assert.throws(
 			() => ts_assert.isUndefined(
-				ts.factory.createIdentifier('foo')
+				ts.factory.createIdentifier('foo'),
 			),
 			{
 				message: [
@@ -195,12 +195,12 @@ void describe('isUndefined', () => {
 					'+ \'foo\'',
 					'- \'undefined\'',
 				].join('\n'),
-			}
+			},
 		);
 	})
 	void it('does not throw', () => {
 		assert.doesNotThrow(() => ts_assert.isUndefined(
-			ts.factory.createIdentifier('undefined')
+			ts.factory.createIdentifier('undefined'),
 		));
 	})
 })

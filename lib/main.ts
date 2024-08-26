@@ -14,20 +14,20 @@ import ts, {
 export function isBooleanLiteral(
 	node:Node,
 	type:boolean,
-	message?:string|Error
+	message?:string|Error,
 ): asserts node is typeof type extends true ? TrueLiteral : FalseLiteral {
 	isExpression(node, message);
 	assert.equal(
 		node.kind,
 		type ? ts.SyntaxKind.TrueKeyword : ts.SyntaxKind.FalseKeyword,
-		message
+		message,
 	);
 }
 
 export function isTokenWithExpectedKind(
 	maybe:Node,
 	expected_kind: ts.SyntaxKind,
-	message?:string|Error
+	message?:string|Error,
 ): asserts maybe is TypeNode & {kind: typeof expected_kind} {
 	assert.equal(ts.isToken(maybe), true, message);
 	assert.equal(ts.isTokenKind(maybe.kind), true, message);
@@ -37,7 +37,7 @@ export function isTokenWithExpectedKind(
 export function isExpectedIdentifier<T = string>(
 	maybe:Node,
 	expected:T,
-	message?:string|Error
+	message?:string|Error,
 ): asserts maybe is Identifier & {escapedText: T} {
 	isIdentifier(maybe, message);
 	assert.equal(maybe.escapedText, expected, message);
@@ -45,7 +45,7 @@ export function isExpectedIdentifier<T = string>(
 
 export function isUndefined(
 	maybe:Node,
-	message?:string|Error
+	message?:string|Error,
 ): asserts maybe is Identifier & {escapedText: 'undefined'} {
 	isExpectedIdentifier(maybe, 'undefined', message);
 }

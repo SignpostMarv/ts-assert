@@ -23,22 +23,22 @@ const nodes = [
 						false,
 						undefined,
 						ts.factory.createIdentifier(
-							declaration
-						)
-					)
-				).sort((a, b) => a.name.text.localeCompare(b.name.text))
-			)
+							declaration,
+						),
+					),
+				).sort((a, b) => a.name.text.localeCompare(b.name.text)),
+			),
 		),
-		ts.factory.createStringLiteral('typescript')
+		ts.factory.createStringLiteral('typescript'),
 	),
 	ts.factory.createImportDeclaration(
 		undefined,
 		ts.factory.createImportClause(
 			false,
 			ts.factory.createIdentifier('assert'),
-			undefined
+			undefined,
 		),
-		ts.factory.createStringLiteral('node:assert/strict')
+		ts.factory.createStringLiteral('node:assert/strict'),
 	),
 	...(assertables.map(
 		declaration => {
@@ -46,23 +46,23 @@ const nodes = [
 				ts.factory.createTemplateHead(
 					`expected ${
 						declaration.type.type.typeName.text
-					}, received `
+					}, received `,
 				),
 				[
 					ts.factory.createTemplateSpan(
 						ts.factory.createElementAccessExpression(
 							ts.factory.createPropertyAccessExpression(
 								ts.factory.createIdentifier('ts'),
-								'SyntaxKind'
+								'SyntaxKind',
 							),
 							ts.factory.createPropertyAccessExpression(
 								ts.factory.createIdentifier('node'),
-								'kind'
-							)
+								'kind',
+							),
 						),
-						ts.factory.createTemplateTail('')
+						ts.factory.createTemplateTail(''),
 					),
-				]
+				],
 			);
 
 			return ts.factory.createFunctionDeclaration(
@@ -77,8 +77,8 @@ const nodes = [
 						'node',
 						undefined,
 						ts.factory.createTypeReferenceNode(
-							declaration.parameters[0].type.typeName.text
-						)
+							declaration.parameters[0].type.typeName.text,
+						),
 					),
 					ts.factory.createParameterDeclaration(
 						undefined,
@@ -95,7 +95,7 @@ const nodes = [
 				ts.factory.createTypePredicateNode(
 					ts.factory.createToken(ts.SyntaxKind.AssertsKeyword),
 					'node',
-					declaration.type.type
+					declaration.type.type,
 				),
 				ts.factory.createBlock([ts.factory.createExpressionStatement(
 					ts.factory.createCallExpression(
@@ -108,20 +108,20 @@ const nodes = [
 							ts.factory.createCallExpression(
 								ts.factory.createPropertyAccessExpression(
 									ts.factory.createIdentifier('ts'),
-									declaration.name.text
+									declaration.name.text,
 								),
 								undefined,
 								[
 									ts.factory.createIdentifier('node'),
-								]
+								],
 							),
 							ts.factory.createTrue(),
 							ts.factory.createIdentifier('message'),
-						]
-					)
-				)])
+						],
+					),
+				)]),
 			)
-		}
+		},
 	)),
 	ts.factory.createExportAssignment(
 		[
@@ -130,9 +130,9 @@ const nodes = [
 		undefined,
 		ts.factory.createObjectLiteralExpression(assertables.map(
 			declaration => ts.factory.createShorthandPropertyAssignment(
-				declaration.name.text
-			)
-		))
+				declaration.name.text,
+			),
+		)),
 	),
 ];
 
@@ -148,7 +148,7 @@ async function format_code(code: string): Promise<string> {
 			{
 				parser: 'typescript',
 				config: prettier_config,
-			}
+			},
 		)
 	).replace(/ {2}/g, '\t').replace(/(\t+) +/gm, '$1');
 }
@@ -167,7 +167,7 @@ async function eslint_lib() {
 		`${await (await eslint_formatter).format(results, {
 			cwd: `${import.meta.dirname}/generated/`,
 			rulesMeta: eslint.getRulesMetaForResults(results),
-		})}\n`
+		})}\n`,
 	);
 }
 
@@ -183,7 +183,7 @@ const result_file = ts.createSourceFile(
 	'',
 	ts.ScriptTarget.Latest,
 	false,
-	ts.ScriptKind.TS
+	ts.ScriptKind.TS,
 );
 
 const node_strings = nodes.map(node => printer.printNode(
@@ -194,7 +194,7 @@ const node_strings = nodes.map(node => printer.printNode(
 
 await writeFile(
 	file_path,
-	await format_code(node_strings.join('\n\n'))
+	await format_code(node_strings.join('\n\n')),
 );
 
 await eslint_lib();
