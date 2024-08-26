@@ -164,7 +164,10 @@ async function eslint_lib() {
 	const results = await eslint.lintFiles(`${import.meta.dirname}/generated/**/*.ts`);
 
 	process.stdout.write(
-		`${await (await eslint_formatter).format(results)}\n`
+		`${await (await eslint_formatter).format(results, {
+			cwd: `${import.meta.dirname}/generated/`,
+			rulesMeta: eslint.getRulesMetaForResults(results),
+		})}\n`
 	);
 }
 
