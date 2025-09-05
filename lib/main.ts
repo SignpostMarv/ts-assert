@@ -1,7 +1,7 @@
 import generated, {
 	isExpression,
 	isIdentifier,
-} from '../generated/assertions';
+} from '../generated/assertions.js';
 import assert from 'node:assert/strict';
 import type {
 	FalseLiteral,
