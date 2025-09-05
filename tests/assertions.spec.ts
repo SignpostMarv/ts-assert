@@ -28,6 +28,7 @@ const auto_override_throws = {
 		'isImportAttributeName',
 		'isLeftHandSideExpression',
 		'isModuleName',
+		'isModuleExportName',
 	],
 };
 
@@ -50,7 +51,7 @@ for (
 	);
 }
 
-for (const declaration of assertables) {
+assertables.forEach((declaration, assertables_index) => {
 	const name = declaration.name.text;
 	if (
 		'Node' === declaration.parameters[0].type.typeName.text
@@ -60,7 +61,7 @@ for (const declaration of assertables) {
 			name as keyof typeof ts_assert
 		] as (node:Node) => void;
 		void describe(name, () => {
-			void it('throws', () => {
+			void it(`throws from assertables[${assertables_index}]`, () => {
 				assert.throws(() => to_call(
 					name in override_throws_test_arg
 						? override_throws_test_arg[
@@ -71,7 +72,7 @@ for (const declaration of assertables) {
 			});
 		});
 	}
-}
+})
 
 void describe('isIdentifier', () => {
 	void it('throws', () => {

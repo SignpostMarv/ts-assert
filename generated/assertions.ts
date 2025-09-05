@@ -137,6 +137,7 @@ import ts, {
 	JsxAttribute,
 	JsxAttributeLike,
 	JsxAttributes,
+	JsxCallLike,
 	JsxChild,
 	JsxClosingElement,
 	JsxClosingFragment,
@@ -167,6 +168,7 @@ import ts, {
 	ModuleBlock,
 	ModuleBody,
 	ModuleDeclaration,
+	ModuleExportName,
 	ModuleName,
 	ModuleReference,
 	NamedExportBindings,
@@ -1512,6 +1514,15 @@ export function isJsxAttributes(
 	assert.equal(ts.isJsxAttributes(node), true, message);
 }
 
+export function isJsxCallLike(
+	node: Node,
+	message:
+		| string
+		| Error = `expected JsxCallLike, received ${ts.SyntaxKind[node.kind]}`,
+): asserts node is JsxCallLike {
+	assert.equal(ts.isJsxCallLike(node), true, message);
+}
+
 export function isJsxChild(
 	node: Node,
 	message:
@@ -1780,6 +1791,15 @@ export function isModuleDeclaration(
 		| Error = `expected ModuleDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ModuleDeclaration {
 	assert.equal(ts.isModuleDeclaration(node), true, message);
+}
+
+export function isModuleExportName(
+	node: Node,
+	message:
+		| string
+		| Error = `expected ModuleExportName, received ${ts.SyntaxKind[node.kind]}`,
+): asserts node is ModuleExportName {
+	assert.equal(ts.isModuleExportName(node), true, message);
 }
 
 export function isModuleName(
@@ -2732,6 +2752,7 @@ export default {
 	isJsxAttribute,
 	isJsxAttributeLike,
 	isJsxAttributes,
+	isJsxCallLike,
 	isJsxChild,
 	isJsxClosingElement,
 	isJsxClosingFragment,
@@ -2762,6 +2783,7 @@ export default {
 	isModuleBlock,
 	isModuleBody,
 	isModuleDeclaration,
+	isModuleExportName,
 	isModuleName,
 	isModuleReference,
 	isNamedExportBindings,
