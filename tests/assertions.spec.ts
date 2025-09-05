@@ -4,9 +4,10 @@ import {
 } from 'node:test';
 import assert from 'node:assert/strict';
 import ts_assert from '../lib/main';
-import ts, {
+import type {
 	Node,
 } from 'typescript';
+import ts from 'typescript';
 import assertables from '../lib/assertables';
 
 const override_throws_test_arg:{[key: string]: Node} = {};

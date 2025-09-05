@@ -3,13 +3,14 @@ import generated, {
 	isIdentifier,
 } from '../generated/assertions';
 import assert from 'node:assert/strict';
-import ts, {
+import type {
 	FalseLiteral,
 	Identifier,
 	Node,
 	TrueLiteral,
 	TypeNode,
 } from 'typescript';
+import ts from 'typescript';
 
 export function isBooleanLiteral(
 	node:Node,

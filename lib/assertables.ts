@@ -1,13 +1,14 @@
 import {
 	readFile,
 } from 'fs/promises';
-import ts, {
+import type {
 	FunctionDeclaration,
 	Identifier,
 	ModuleBlock,
 	ModuleDeclaration,
 	TypeReferenceNode,
 } from 'typescript';
+import ts from 'typescript';
 import assert from 'node:assert/strict';
 
 const ast = ts.createSourceFile(

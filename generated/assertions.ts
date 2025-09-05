@@ -1,4 +1,4 @@
-import ts, {
+import type {
 	AccessorDeclaration,
 	ArrayBindingElement,
 	ArrayBindingPattern,
@@ -260,6 +260,8 @@ import ts, {
 	WithStatement,
 	YieldExpression,
 } from "typescript";
+
+import ts from "typescript";
 
 import assert from "node:assert/strict";
 

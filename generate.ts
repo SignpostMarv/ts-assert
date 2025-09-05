@@ -1,7 +1,9 @@
 import {
 	writeFile,
 } from 'fs/promises';
-import ts from 'typescript';
+import ts, {
+	SyntaxKind,
+} from 'typescript';
 import * as prettier from 'prettier';
 import {
 	ESLint,
@@ -12,8 +14,8 @@ const nodes = [
 	ts.factory.createImportDeclaration(
 		undefined,
 		ts.factory.createImportClause(
-			false,
-			ts.factory.createIdentifier('ts'),
+			SyntaxKind.TypeKeyword,
+			undefined,
 			ts.factory.createNamedImports(
 				[...(new Set([
 					'Node',
@@ -34,7 +36,16 @@ const nodes = [
 	ts.factory.createImportDeclaration(
 		undefined,
 		ts.factory.createImportClause(
-			false,
+			undefined,
+			ts.factory.createIdentifier('ts'),
+			undefined,
+		),
+		ts.factory.createStringLiteral('typescript'),
+	),
+	ts.factory.createImportDeclaration(
+		undefined,
+		ts.factory.createImportClause(
+			undefined,
 			ts.factory.createIdentifier('assert'),
 			undefined,
 		),
@@ -167,7 +178,7 @@ async function eslint_lib() {
 		`${await (await eslint_formatter).format(results, {
 			cwd: `${import.meta.dirname}/generated/`,
 			rulesMeta: eslint.getRulesMetaForResults(results),
-		})}\n`,
+		} as ESLint.LintResultData)}\n`,
 	);
 }
 
