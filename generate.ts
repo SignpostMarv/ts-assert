@@ -8,7 +8,7 @@ import * as prettier from 'prettier';
 import {
 	ESLint,
 } from 'eslint';
-import assertables from './lib/assertables';
+import assertables from './lib/assertables.js';
 
 const nodes = [
 	ts.factory.createImportDeclaration(

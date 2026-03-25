@@ -3,12 +3,12 @@ import {
 	it,
 } from 'node:test';
 import assert from 'node:assert/strict';
-import ts_assert from '../lib/main';
+import ts_assert from '../lib/main.ts';
 import type {
 	Node,
 } from 'typescript';
 import ts from 'typescript';
-import assertables from '../lib/assertables';
+import assertables from '../lib/assertables.ts';
 
 const override_throws_test_arg:{[key: string]: Node} = {};
 
@@ -82,7 +82,7 @@ void describe('isIdentifier', () => {
 				ts.factory.createStringLiteral('foo'),
 			),
 			{
-				message: 'expected Identifier, received StringLiteral',
+				message: /^expected Identifier, received StringLiteral\b/,
 			},
 		);
 	});
@@ -150,7 +150,7 @@ void describe('isExpectedIdentifier', () => {
 				'bar',
 			),
 			{
-				message: 'expected Identifier, received StringLiteral',
+				message: /^expected Identifier, received StringLiteral\n/,
 			},
 		);
 		assert.throws(
@@ -182,7 +182,7 @@ void describe('isUndefined', () => {
 				ts.factory.createStringLiteral('foo'),
 			),
 			{
-				message: 'expected Identifier, received StringLiteral',
+				message: /^expected Identifier, received StringLiteral\b/,
 			},
 		);
 		assert.throws(
@@ -192,10 +192,9 @@ void describe('isUndefined', () => {
 			{
 				message: [
 					'Expected values to be strictly equal:',
-					'+ actual - expected',
 					'',
-					'+ \'foo\'',
-					'- \'undefined\'',
+					'\'foo\' !== \'undefined\'',
+					'',
 				].join('\n'),
 			},
 		);
