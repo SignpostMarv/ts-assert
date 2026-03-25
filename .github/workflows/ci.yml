@@ -11,14 +11,12 @@ jobs:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
               with:
-                  node-version: 21.x
+                  node-version: 25.x
                   cache: 'npm'
             - run: npm ci
             - run: make lint
             - name: Generate coverage
-              run: ./node_modules/.bin/c8 --config=./.c8rc.coveralls.json npm test
-              env:
-                  NODE_OPTIONS: '--enable-source-maps --no-warnings=ExperimentalWarning --loader ts-node/esm'
+              run: make coverage--lcov
             - name: Coveralls GitHub Action
               uses: coverallsapp/github-action@v2.2.3
               with:

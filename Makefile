@@ -11,12 +11,18 @@ generate--post-build:
 	@NODE_OPTIONS='' ./node_modules/.bin/tsc --project ./tsconfig.generated-types-check.json
 
 .PHONY: tests
-tests: build
-	@node ./tests.ts
+tests:
+	@node --test
 
 .PHONY: coverage
-coverage: build
-	@./node_modules/.bin/c8 node ./tests.ts
+coverage: lint coverage--skip-lint
+
+coverage--skip-lint:
+	@node --experimental-test-coverage --test-coverage-include='${PWD}/lib/**/*.ts' --test
+
+coverage--lcov:
+	@node --experimental-test-coverage --test-coverage-include='${PWD}/lib/**/*.ts' --test --test-reporter=lcov --test-reporter-destination=coverage/lcov.info
+
 
 lint--prettier:
 	@echo 'running prettier'
