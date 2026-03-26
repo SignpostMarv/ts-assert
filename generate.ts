@@ -158,13 +158,13 @@ if (!prettier_config) {
 async function format_code(code: string): Promise<string> {
 	return `/* eslint-disable @stylistic/max-len */${'\n'}${
 		(
-		await prettier.format(
-			code,
-			{
-				parser: 'typescript',
-				config: prettier_config,
-			},
-		)
+			await prettier.format(
+				code,
+				{
+					parser: 'typescript',
+					config: prettier_config,
+				},
+			)
 		)
 			.replace(/ {2}/g, '\t')
 			.replace(/(\t+) +/gm, '$1')
