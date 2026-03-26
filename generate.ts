@@ -8,7 +8,8 @@ import * as prettier from 'prettier';
 import {
 	ESLint,
 } from 'eslint';
-import assertables from './lib/assertables.js';
+
+import assertables from './lib/assertables.ts';
 
 const nodes = [
 	ts.factory.createImportDeclaration(
@@ -19,9 +20,9 @@ const nodes = [
 			ts.factory.createNamedImports(
 				[...(new Set([
 					'Node',
-					...assertables.map(e => e.type.type.typeName.text),
+					...assertables.map((e) => e.type.type.typeName.text),
 				])).values()].map(
-					declaration => ts.factory.createImportSpecifier(
+					(declaration) => ts.factory.createImportSpecifier(
 						false,
 						undefined,
 						ts.factory.createIdentifier(
@@ -52,7 +53,7 @@ const nodes = [
 		ts.factory.createStringLiteral('node:assert/strict'),
 	),
 	...(assertables.map(
-		declaration => {
+		(declaration) => {
 			const default_message = ts.factory.createTemplateExpression(
 				ts.factory.createTemplateHead(
 					`expected ${
@@ -131,7 +132,7 @@ const nodes = [
 						],
 					),
 				)]),
-			)
+			);
 		},
 	)),
 	ts.factory.createExportAssignment(
@@ -140,20 +141,23 @@ const nodes = [
 		],
 		undefined,
 		ts.factory.createObjectLiteralExpression(assertables.map(
-			declaration => ts.factory.createShorthandPropertyAssignment(
+			(declaration) => ts.factory.createShorthandPropertyAssignment(
 				declaration.name.text,
 			),
 		)),
 	),
 ];
 
-const prettier_config = await prettier.resolveConfig(`${import.meta.dirname}/.prettierrc`);
+const prettier_config = await prettier.resolveConfig(
+	`${import.meta.dirname}/.prettierrc`,
+);
 
 if (!prettier_config) {
 	throw new Error('could not find prettier config');
 }
 async function format_code(code: string): Promise<string> {
-	return (
+	return `/* eslint-disable @stylistic/max-len */${'\n'}${
+		(
 		await prettier.format(
 			code,
 			{
@@ -161,7 +165,12 @@ async function format_code(code: string): Promise<string> {
 				config: prettier_config,
 			},
 		)
-	).replace(/ {2}/g, '\t').replace(/(\t+) +/gm, '$1');
+		)
+			.replace(/ {2}/g, '\t')
+			.replace(/(\t+) +/gm, '$1')
+			.replace(/"typescript"/g, `'typescript'`)
+			.replace(/"node:assert\/strict"/g, `'node:assert/strict'`)
+	}`;
 }
 
 async function eslint_lib() {
@@ -172,7 +181,9 @@ async function eslint_lib() {
 		cacheStrategy: 'content',
 	});
 	const eslint_formatter = eslint.loadFormatter('stylish');
-	const results = await eslint.lintFiles(`${import.meta.dirname}/generated/**/*.ts`);
+	const results = await eslint.lintFiles(
+		`${import.meta.dirname}/generated/**/*.ts`,
+	);
 
 	process.stdout.write(
 		`${await (await eslint_formatter).format(results, {
@@ -197,7 +208,7 @@ const result_file = ts.createSourceFile(
 	ts.ScriptKind.TS,
 );
 
-const node_strings = nodes.map(node => printer.printNode(
+const node_strings = nodes.map((node) => printer.printNode(
 	ts.EmitHint.Unspecified,
 	node,
 	result_file,

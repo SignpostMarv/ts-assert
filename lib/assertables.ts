@@ -13,7 +13,11 @@ import assert from 'node:assert/strict';
 
 const ast = ts.createSourceFile(
 	'typescript.d.ts',
-	(await readFile(`${import.meta.dirname}/../node_modules/typescript/lib/typescript.d.ts`)).toString(),
+	(
+		await readFile(`${
+			import.meta.dirname
+		}/../node_modules/typescript/lib/typescript.d.ts`)
+	).toString(),
 	ts.ScriptTarget.Latest,
 	false,
 	ts.ScriptKind.TS,
@@ -32,18 +36,18 @@ assert.equal(
 const {statements} = module_body as ModuleBlock;
 type named_function = (
 	& FunctionDeclaration
-	& {name:Identifier}
+	& {name: Identifier}
 );
 
-const functions:named_function[] = statements.filter(
+const functions: named_function[] = statements.filter(
 	(e): e is named_function => {
 		return ts.isFunctionDeclaration(e) && !!e.name;
 	},
 );
 
 type assertable_function<
-	NodeParam extends string = string
-> =
+	NodeParam extends string = string,
+> = (
 	& named_function
 	& {
 		name: (
@@ -56,7 +60,7 @@ type assertable_function<
 					name: (
 						& Identifier
 						& {
-							text: NodeParam
+							text: NodeParam,
 						}
 					),
 					type: (
@@ -65,15 +69,16 @@ type assertable_function<
 							typeName: Identifier,
 						}
 					),
+				// eslint-disable-next-line @stylistic/comma-dangle
 				}
-			)
+			),
 		],
 		type: (
 			& {
 				parameterName: (
 					& Identifier
 					& {
-						text: NodeParam
+						text: NodeParam,
 					}
 				),
 				type: (
@@ -83,8 +88,9 @@ type assertable_function<
 					}
 				),
 			}
-		)
-	};
+		),
+	}
+);
 
 const skip_these = [
 	'isAssertClause',
@@ -97,7 +103,7 @@ const skip_these = [
 	'isUnparsedTextLike',
 ];
 
-export const assertables:assertable_function[] = functions.filter(
+export const assertables: assertable_function[] = functions.filter(
 	(e): e is assertable_function => {
 		return (
 			e.name.text.startsWith('is')

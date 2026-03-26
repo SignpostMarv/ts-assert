@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 import type {
 	AccessorDeclaration,
 	ArrayBindingElement,
@@ -259,11 +260,11 @@ import type {
 	WhileStatement,
 	WithStatement,
 	YieldExpression,
-} from "typescript";
+} from 'typescript';
 
-import ts from "typescript";
+import ts from 'typescript';
 
-import assert from "node:assert/strict";
+import assert from 'node:assert/strict';
 
 export function isAccessor(
 	node: Node,

@@ -13,9 +13,9 @@ import type {
 import ts from 'typescript';
 
 export function isBooleanLiteral(
-	node:Node,
-	type:boolean,
-	message?:string|Error,
+	node: Node,
+	type: boolean,
+	message?: string | Error,
 ): asserts node is typeof type extends true ? TrueLiteral : FalseLiteral {
 	isExpression(node, message);
 	assert.equal(
@@ -26,9 +26,9 @@ export function isBooleanLiteral(
 }
 
 export function isTokenWithExpectedKind(
-	maybe:Node,
+	maybe: Node,
 	expected_kind: ts.SyntaxKind,
-	message?:string|Error,
+	message?: string | Error,
 ): asserts maybe is TypeNode & {kind: typeof expected_kind} {
 	assert.equal(ts.isToken(maybe), true, message);
 	assert.equal(ts.isTokenKind(maybe.kind), true, message);
@@ -36,17 +36,17 @@ export function isTokenWithExpectedKind(
 }
 
 export function isExpectedIdentifier<T = string>(
-	maybe:Node,
-	expected:T,
-	message?:string|Error,
+	maybe: Node,
+	expected: T,
+	message?: string | Error,
 ): asserts maybe is Identifier & {escapedText: T} {
 	isIdentifier(maybe, message);
 	assert.equal(maybe.escapedText, expected, message);
 }
 
 export function isUndefined(
-	maybe:Node,
-	message?:string|Error,
+	maybe: Node,
+	message?: string | Error,
 ): asserts maybe is Identifier & {escapedText: 'undefined'} {
 	isExpectedIdentifier(maybe, 'undefined', message);
 }
