@@ -12,6 +12,14 @@
         ".": "./lib/main.js"
     },
     "types": "./lib/main.d.ts",
+    "files": [
+        "./lib/**/*.js",
+        "./lib/**/*.ts",
+        "./lib/**/*.js.map",
+        "./generated/**/*.js",
+        "./generated/**/*.ts",
+        "./generated/**/*.js.map"
+    ],
     "devDependencies": {
         "@signpostmarv/oxlint-config": "^0.2.0",
         "@stylistic/eslint-plugin": "^5.10.0",

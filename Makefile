@@ -32,3 +32,8 @@ lint--oxlint:
 	@./node_modules/.bin/oxlint
 
 lint: lint--prettier lint--oxlint
+
+npm-prep: generate--skip-build lint
+	@echo 'building from ./tsconfig.app-npm.json'
+	@./node_modules/.bin/tsc --project ./tsconfig.app-npm.json
+	@npm publish --dry-run
