@@ -65,18 +65,18 @@ type assertable_function<
 		),
 		parameters: [
 			{
-					name: (
-						& Identifier
-						& {
-							text: NodeParam,
-						}
-					),
-					type: (
-						& TypeReferenceNode
-						& {
-							typeName: Identifier,
-						}
-					),
+				name: (
+					& Identifier
+					& {
+						text: NodeParam,
+					}
+				),
+				type: (
+					& TypeReferenceNode
+					& {
+						typeName: Identifier,
+					}
+				),
 			},
 		],
 		type: (
