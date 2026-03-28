@@ -24,12 +24,11 @@
         "@signpostmarv/oxlint-config": "^0.2.0",
         "@stylistic/eslint-plugin": "^5.10.0",
         "@types/node": "^25.5.0",
-        "@types/regexp.escape": "^2.0.0",
         "oxlint": "^1.57.0",
         "oxlint-tsgolint": "^0.18.1",
         "prettier": "^3.2.5"
     },
     "dependencies": {
-        "typescript": "~5.9.3"
+        "typescript": "~6.0.2"
     }
 }

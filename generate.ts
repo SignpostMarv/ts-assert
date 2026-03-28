@@ -1,6 +1,6 @@
 import {
 	writeFile,
-} from 'fs/promises';
+} from 'node:fs/promises';
 import ts, {
 	SyntaxKind,
 } from 'typescript';
