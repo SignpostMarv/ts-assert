@@ -13,13 +13,13 @@
     },
     "types": "./lib/main.d.ts",
     "devDependencies": {
-        "@signpostmarv/eslint-config": "^0.8.4",
-        "@types/eslint": "^9.6.1",
+        "@signpostmarv/oxlint-config": "^0.2.0",
+        "@stylistic/eslint-plugin": "^5.10.0",
         "@types/node": "^25.5.0",
         "@types/regexp.escape": "^2.0.0",
-        "eslint": "^10.1.0",
-        "prettier": "^3.2.5",
-        "typescript-eslint": "^8.57.2"
+        "oxlint": "^1.57.0",
+        "oxlint-tsgolint": "^0.18.1",
+        "prettier": "^3.2.5"
     },
     "dependencies": {
         "typescript": "~5.9.2"

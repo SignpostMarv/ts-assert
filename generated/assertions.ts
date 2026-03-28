@@ -1,3 +1,5 @@
+// oxlint-disable typescript/no-unsafe-member-access
+// oxlint-disable typescript/no-unsafe-call
 /* eslint-disable @stylistic/max-len */
 import type {
 	AccessorDeclaration,

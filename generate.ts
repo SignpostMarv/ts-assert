@@ -5,9 +5,6 @@ import ts, {
 	SyntaxKind,
 } from 'typescript';
 import * as prettier from 'prettier';
-import {
-	ESLint,
-} from 'eslint';
 
 import assertables from './lib/assertables.ts';
 
@@ -156,7 +153,11 @@ if (!prettier_config) {
 	throw new Error('could not find prettier config');
 }
 async function format_code(code: string): Promise<string> {
-	return `/* eslint-disable @stylistic/max-len */${'\n'}${
+	return `${[
+		'// oxlint-disable typescript/no-unsafe-member-access',
+		'// oxlint-disable typescript/no-unsafe-call',
+		'/* eslint-disable @stylistic/max-len */',
+	].join('\n')}${'\n'}${
 		(
 			await prettier.format(
 				code,
@@ -171,26 +172,6 @@ async function format_code(code: string): Promise<string> {
 			.replace(/"typescript"/g, `'typescript'`)
 			.replace(/"node:assert\/strict"/g, `'node:assert/strict'`)
 	}`;
-}
-
-async function eslint_lib() {
-	const eslint = new ESLint({
-		fix: true,
-		cache: true,
-		cacheLocation: `${import.meta.dirname}/generated/.eslintcache`,
-		cacheStrategy: 'content',
-	});
-	const eslint_formatter = eslint.loadFormatter('stylish');
-	const results = await eslint.lintFiles(
-		`${import.meta.dirname}/generated/**/*.ts`,
-	);
-
-	process.stdout.write(
-		`${await (await eslint_formatter).format(results, {
-			cwd: `${import.meta.dirname}/generated/`,
-			rulesMeta: eslint.getRulesMetaForResults(results),
-		} as ESLint.LintResultData)}\n`,
-	);
 }
 
 
@@ -214,9 +195,8 @@ const node_strings = nodes.map((node) => printer.printNode(
 	result_file,
 ));
 
+// oxlint-disable-next-line typescript/no-unsafe-call
 await writeFile(
 	file_path,
 	await format_code(node_strings.join('\n\n')),
 );
-
-await eslint_lib();

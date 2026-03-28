@@ -64,8 +64,12 @@ assertables.forEach((declaration, assertables_index) => {
 			name as keyof typeof ts_assert
 		] as (node: Node) => void;
 
+		// oxlint-disable-next-line typescript/no-unsafe-call
 		void describe(name, () => {
+			// oxlint-disable-next-line typescript/no-unsafe-call
 			void it(`throws from assertables[${assertables_index}]`, () => {
+				// oxlint-disable-next-line @stylistic/max-len
+				// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 				assert.throws(() => to_call(
 					name in override_throws_test_arg
 						? override_throws_test_arg[
@@ -78,8 +82,12 @@ assertables.forEach((declaration, assertables_index) => {
 	}
 });
 
+// oxlint-disable-next-line typescript/no-unsafe-call
 void describe('isIdentifier', () => {
+	// oxlint-disable-next-line typescript/no-unsafe-call
 	void it('throws', () => {
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(
 			() => ts_assert.isIdentifier(
 				ts.factory.createStringLiteral('foo'),
@@ -91,35 +99,55 @@ void describe('isIdentifier', () => {
 	});
 });
 
+// oxlint-disable-next-line typescript/no-unsafe-call
 void describe('isEmptyBindingPattern', () => {
+	// oxlint-disable-next-line typescript/no-unsafe-call
 	void it('throws', () => {
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(() => ts_assert.isEmptyBindingPattern(
 			ts.factory.createIdentifier('foo'),
 		));
 	});
 });
 
+// oxlint-disable-next-line typescript/no-unsafe-call
 void describe('isBooleanLiteral', () => {
+	// oxlint-disable-next-line typescript/no-unsafe-call
 	void it('throws', () => {
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(() => ts_assert.isBooleanLiteral(
 			ts.factory.createStringLiteral('foo'),
 			true,
 		));
+
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(() => ts_assert.isBooleanLiteral(
 			ts.factory.createFalse(),
 			true,
 		));
+
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(() => ts_assert.isBooleanLiteral(
 			ts.factory.createTrue(),
 			false,
 		));
 	});
 
+	// oxlint-disable-next-line typescript/no-unsafe-call
 	void it('does not throw', () => {
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.doesNotThrow(() => ts_assert.isBooleanLiteral(
 			ts.factory.createTrue(),
 			true,
 		));
+
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.doesNotThrow(() => ts_assert.isBooleanLiteral(
 			ts.factory.createFalse(),
 			false,
@@ -127,19 +155,29 @@ void describe('isBooleanLiteral', () => {
 	});
 });
 
+// oxlint-disable-next-line typescript/no-unsafe-call
 void describe('isTokenWithExpectedKind', () => {
+	// oxlint-disable-next-line typescript/no-unsafe-call
 	void it('throws', () => {
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(() => ts_assert.isTokenWithExpectedKind(
 			ts.factory.createStringLiteral('foo'),
 			ts.SyntaxKind.StringKeyword,
 		));
+
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(() => ts_assert.isTokenWithExpectedKind(
 			ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
 			ts.SyntaxKind.NumberKeyword,
 		));
 	});
 
+	// oxlint-disable-next-line typescript/no-unsafe-call
 	void it('does not throw', () => {
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.doesNotThrow(() => ts_assert.isTokenWithExpectedKind(
 			ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
 			ts.SyntaxKind.StringKeyword,
@@ -147,8 +185,12 @@ void describe('isTokenWithExpectedKind', () => {
 	});
 });
 
+// oxlint-disable-next-line typescript/no-unsafe-call
 void describe('isExpectedIdentifier', () => {
+	// oxlint-disable-next-line typescript/no-unsafe-call
 	void it('throws', () => {
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(
 			() => ts_assert.isExpectedIdentifier(
 				ts.factory.createStringLiteral('foo'),
@@ -158,6 +200,9 @@ void describe('isExpectedIdentifier', () => {
 				message: /^expected Identifier, received StringLiteral\n/,
 			},
 		);
+
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(
 			() => ts_assert.isExpectedIdentifier(
 				ts.factory.createIdentifier('foo'),
@@ -172,7 +217,10 @@ void describe('isExpectedIdentifier', () => {
 		);
 	});
 
+	// oxlint-disable-next-line typescript/no-unsafe-call
 	void it('does not throw', () => {
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.doesNotThrow(() => ts_assert.isExpectedIdentifier(
 			ts.factory.createIdentifier('foo'),
 			'foo',
@@ -180,8 +228,12 @@ void describe('isExpectedIdentifier', () => {
 	});
 });
 
+// oxlint-disable-next-line typescript/no-unsafe-call
 void describe('isUndefined', () => {
+	// oxlint-disable-next-line typescript/no-unsafe-call
 	void it('throws', () => {
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(
 			() => ts_assert.isUndefined(
 				ts.factory.createStringLiteral('foo'),
@@ -190,6 +242,9 @@ void describe('isUndefined', () => {
 				message: /^expected Identifier, received StringLiteral\b/,
 			},
 		);
+
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.throws(
 			() => ts_assert.isUndefined(
 				ts.factory.createIdentifier('foo'),
@@ -205,7 +260,10 @@ void describe('isUndefined', () => {
 		);
 	});
 
+	// oxlint-disable-next-line typescript/no-unsafe-call
 	void it('does not throw', () => {
+		// oxlint-disable-next-line @stylistic/max-len
+		// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 		assert.doesNotThrow(() => ts_assert.isUndefined(
 			ts.factory.createIdentifier('undefined'),
 		));
