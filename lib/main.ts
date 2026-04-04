@@ -19,8 +19,6 @@ export function isBooleanLiteral(
 ): asserts node is typeof type extends true ? TrueLiteral : FalseLiteral {
 	isExpression(node, message);
 
-	// oxlint-disable-next-line @stylistic/max-len
-	// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 	assert.equal(
 		node.kind,
 		type ? ts.SyntaxKind.TrueKeyword : ts.SyntaxKind.FalseKeyword,
@@ -33,16 +31,10 @@ export function isTokenWithExpectedKind(
 	expected_kind: ts.SyntaxKind,
 	message?: string | Error,
 ): asserts maybe is TypeNode & {kind: typeof expected_kind} {
-	// oxlint-disable-next-line @stylistic/max-len
-	// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 	assert.equal(ts.isToken(maybe), true, message);
 
-	// oxlint-disable-next-line @stylistic/max-len
-	// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 	assert.equal(ts.isTokenKind(maybe.kind), true, message);
 
-	// oxlint-disable-next-line @stylistic/max-len
-	// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 	assert.equal(maybe.kind, expected_kind, message);
 }
 
@@ -53,8 +45,6 @@ export function isExpectedIdentifier<T = string>(
 ): asserts maybe is Identifier & {escapedText: T} {
 	isIdentifier(maybe, message);
 
-	// oxlint-disable-next-line @stylistic/max-len
-	// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 	assert.equal(maybe.escapedText, expected, message);
 }
 

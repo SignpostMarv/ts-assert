@@ -11,8 +11,6 @@ import type {
 import ts from 'typescript';
 import assert from 'node:assert/strict';
 
-// oxlint-disable-next-line @stylistic/max-len
-// oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-call
 const typescript_defs = await readFile(`${
 	import.meta.dirname
 }/../node_modules/typescript/lib/typescript.d.ts`);
@@ -20,22 +18,16 @@ const typescript_defs = await readFile(`${
 const ast = ts.createSourceFile(
 	'typescript.d.ts',
 
-	// oxlint-disable-next-line @stylistic/max-len
-	// oxlint-disable-next-line typescript/no-unsafe-argument, typescript/no-unsafe-call, typescript/no-unsafe-member-access
 	typescript_defs.toString(),
 	ts.ScriptTarget.Latest,
 	false,
 	ts.ScriptKind.TS,
 ).statements.filter((e): e is ModuleDeclaration => ts.isModuleDeclaration(e));
 
-// oxlint-disable-next-line @stylistic/max-len
-// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 assert.equal(ast.length, 1, 'Could not obtain typescript module AST');
 
 const module_body = ast[0].body;
 
-// oxlint-disable-next-line @stylistic/max-len
-// oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
 assert.equal(
 	!!module_body && !!ts.isModuleBlock(module_body),
 	true,

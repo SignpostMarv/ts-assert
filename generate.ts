@@ -154,8 +154,6 @@ if (!prettier_config) {
 }
 async function format_code(code: string): Promise<string> {
 	return `${[
-		'// oxlint-disable typescript/no-unsafe-member-access',
-		'// oxlint-disable typescript/no-unsafe-call',
 		'/* eslint-disable @stylistic/max-len */',
 	].join('\n')}${'\n'}${
 		(
