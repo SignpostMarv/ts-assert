@@ -1,8 +1,8 @@
 {
 	"name": "@signpostmarv/ts-assert",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"dockerComposeFile": "./docker-compose.yml",
+	"service": "devcontainer",
+	"workspaceFolder": "/app/",
 	"postCreateCommand": "npm config set git-tag-version=false && npm install",
 	"remoteUser": "vscode",
 	"updateRemoteUserUID": true,
@@ -11,6 +11,7 @@
 			"extensions": [
 				"-GitHub.copilot",
 				"EditorConfig.EditorConfig",
+				"-dbaeumer.vscode-eslint",
 				"oxc.oxc-vscode",
 				"github.vscode-github-actions",
 				"ms-azuretools.vscode-docker",
