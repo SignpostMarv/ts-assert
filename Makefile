@@ -1,6 +1,6 @@
 build:
 	@echo 'building from ./tsconfig.app.json'
-	@NODE_OPTIONS='' ./node_modules/.bin/tsc --project ./tsconfig.app.json
+	@./node_modules/.bin/tsc --project ./tsconfig.app.json
 
 generate: build generate--skip-build
 
@@ -8,7 +8,7 @@ generate--skip-build: generate--post-build
 	@node ./generate.ts
 
 generate--post-build:
-	@NODE_OPTIONS='' ./node_modules/.bin/tsc --project ./tsconfig.generated-types-check.json
+	@./node_modules/.bin/tsc --project ./tsconfig.generated-types-check.json
 
 .PHONY: tests
 tests:
