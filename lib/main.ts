@@ -62,3 +62,5 @@ export default {
 	isExpectedIdentifier,
 	isUndefined,
 };
+
+export * from '../generated/assertions.ts';
