@@ -144,7 +144,7 @@ const nodes = [
 								ts.factory.createIdentifier('maybe_Error'),
 								undefined,
 								[
-							ts.factory.createIdentifier('message'),
+									ts.factory.createIdentifier('message'),
 								],
 							),
 						],
