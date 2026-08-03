@@ -266,7 +266,9 @@ import ts from '@typescript/typescript6';
 
 import assert from 'node:assert/strict';
 
-import { maybe_Error } from "../lib/main.ts";
+import {
+	maybe_Error,
+} from '../lib/main.ts';
 
 export function isAccessor(
 	node: Node,

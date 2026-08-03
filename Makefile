@@ -1,11 +1,17 @@
+build--cleanup:
+	@git clean -fxd ./generated/
+
 build:
 	@echo 'building from ./tsconfig.app.json'
 	@./node_modules/.bin/tsc --project ./tsconfig.app.json
 
-generate: build generate--skip-build
+generate: build--cleanup build generate--skip-build
 
 generate--skip-build: generate--post-build
 	@node ./generate.ts
+	@-./node_modules/.bin/oxlint --fix ./generated/
+	@-./node_modules/.bin/oxlint --fix ./generated/
+	@-./node_modules/.bin/oxlint --fix ./generated/
 
 generate--post-build:
 	@./node_modules/.bin/tsc --project ./tsconfig.generated-types-check.json
