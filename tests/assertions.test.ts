@@ -6,8 +6,8 @@ import assert from 'node:assert/strict';
 import ts_assert from '../lib/main.ts';
 import type {
 	Node,
-} from 'typescript';
-import ts from 'typescript';
+} from '@typescript/typescript6';
+import ts from '@typescript/typescript6';
 import assertables from '../lib/assertables.ts';
 
 const override_throws_test_arg: {[key: string]: Node} = {};

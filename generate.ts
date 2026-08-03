@@ -3,7 +3,7 @@ import {
 } from 'node:fs/promises';
 import ts, {
 	SyntaxKind,
-} from 'typescript';
+} from '@typescript/typescript6';
 import * as prettier from 'prettier';
 
 import assertables from './lib/assertables.ts';
@@ -48,6 +48,21 @@ const nodes = [
 			undefined,
 		),
 		ts.factory.createStringLiteral('node:assert/strict'),
+	),
+	ts.factory.createImportDeclaration(
+		undefined,
+		ts.factory.createImportClause(
+			undefined,
+			undefined,
+			ts.factory.createNamedImports([
+				ts.factory.createImportSpecifier(
+					false,
+					undefined,
+					ts.factory.createIdentifier('maybe_Error'),
+				),
+			]),
+		),
+		ts.factory.createStringLiteral('../lib/main.ts'),
 	),
 	...(assertables.map(
 		(declaration) => {
@@ -125,7 +140,13 @@ const nodes = [
 								],
 							),
 							ts.factory.createTrue(),
+							ts.factory.createCallExpression(
+								ts.factory.createIdentifier('maybe_Error'),
+								undefined,
+								[
 							ts.factory.createIdentifier('message'),
+								],
+							),
 						],
 					),
 				)]),
@@ -167,7 +188,7 @@ async function format_code(code: string): Promise<string> {
 		)
 			.replace(/ {2}/g, '\t')
 			.replace(/(\t+) +/gm, '$1')
-			.replace(/"typescript"/g, `'typescript'`)
+			.replace(/"typescript"/g, `'@typescript/typescript6'`)
 			.replace(/"node:assert\/strict"/g, `'node:assert/strict'`)
 	}`;
 }

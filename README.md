@@ -11,7 +11,7 @@ Code-generated assertions for TypeScript type guarding functions.
 import {describe, it} from 'node:test';
 import assert from 'node:assert/strict';
 import ts_assert from '@signpostmarv/ts-assert';
-import ts from 'typescript';
+import ts from '@typescript/typescript6';
 
 void describe('isIdentifier', () => {
 	void it('throws', () => {

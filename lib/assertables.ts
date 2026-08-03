@@ -7,13 +7,13 @@ import type {
 	ModuleBlock,
 	ModuleDeclaration,
 	TypeReferenceNode,
-} from 'typescript';
-import ts from 'typescript';
+} from '@typescript/typescript6';
+import ts from '@typescript/typescript6';
 import assert from 'node:assert/strict';
 
 const typescript_defs = await readFile(`${
 	import.meta.dirname
-}/../node_modules/typescript/lib/typescript.d.ts`);
+}/../node_modules/@typescript/old/lib/typescript.d.ts`);
 
 const ast = ts.createSourceFile(
 	'typescript.d.ts',

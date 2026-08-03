@@ -9,8 +9,17 @@ import type {
 	Node,
 	TrueLiteral,
 	TypeNode,
-} from 'typescript';
-import ts from 'typescript';
+} from '@typescript/typescript6';
+import ts from '@typescript/typescript6';
+
+export function maybe_Error(
+	maybe?: string | Error,
+): (
+	| undefined
+	| Error
+) {
+	return 'string' === typeof maybe ? new Error(maybe) : maybe;
+}
 
 export function isBooleanLiteral(
 	node: Node,
@@ -22,7 +31,7 @@ export function isBooleanLiteral(
 	assert.equal(
 		node.kind,
 		type ? ts.SyntaxKind.TrueKeyword : ts.SyntaxKind.FalseKeyword,
-		message,
+		maybe_Error(message),
 	);
 }
 
@@ -31,11 +40,11 @@ export function isTokenWithExpectedKind(
 	expected_kind: ts.SyntaxKind,
 	message?: string | Error,
 ): asserts maybe is TypeNode & {kind: typeof expected_kind} {
-	assert.equal(ts.isToken(maybe), true, message);
+	assert.equal(ts.isToken(maybe), true, maybe_Error(message));
 
-	assert.equal(ts.isTokenKind(maybe.kind), true, message);
+	assert.equal(ts.isTokenKind(maybe.kind), true, maybe_Error(message));
 
-	assert.equal(maybe.kind, expected_kind, message);
+	assert.equal(maybe.kind, expected_kind, maybe_Error(message));
 }
 
 export function isExpectedIdentifier<T = string>(
@@ -45,7 +54,7 @@ export function isExpectedIdentifier<T = string>(
 ): asserts maybe is Identifier & {escapedText: T} {
 	isIdentifier(maybe, message);
 
-	assert.equal(maybe.escapedText, expected, message);
+	assert.equal(maybe.escapedText, expected, maybe_Error(message));
 }
 
 export function isUndefined(

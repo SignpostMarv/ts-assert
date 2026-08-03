@@ -260,11 +260,13 @@ import type {
 	WhileStatement,
 	WithStatement,
 	YieldExpression,
-} from 'typescript';
+} from '@typescript/typescript6';
 
-import ts from 'typescript';
+import ts from '@typescript/typescript6';
 
 import assert from 'node:assert/strict';
+
+import { maybe_Error } from "../lib/main.ts";
 
 export function isAccessor(
 	node: Node,
@@ -272,7 +274,7 @@ export function isAccessor(
 		| string
 		| Error = `expected AccessorDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is AccessorDeclaration {
-	assert.equal(ts.isAccessor(node), true, message);
+	assert.equal(ts.isAccessor(node), true, maybe_Error(message));
 }
 
 export function isArrayBindingElement(
@@ -281,7 +283,7 @@ export function isArrayBindingElement(
 		| string
 		| Error = `expected ArrayBindingElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ArrayBindingElement {
-	assert.equal(ts.isArrayBindingElement(node), true, message);
+	assert.equal(ts.isArrayBindingElement(node), true, maybe_Error(message));
 }
 
 export function isArrayBindingPattern(
@@ -290,7 +292,7 @@ export function isArrayBindingPattern(
 		| string
 		| Error = `expected ArrayBindingPattern, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ArrayBindingPattern {
-	assert.equal(ts.isArrayBindingPattern(node), true, message);
+	assert.equal(ts.isArrayBindingPattern(node), true, maybe_Error(message));
 }
 
 export function isArrayLiteralExpression(
@@ -299,7 +301,7 @@ export function isArrayLiteralExpression(
 		| string
 		| Error = `expected ArrayLiteralExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ArrayLiteralExpression {
-	assert.equal(ts.isArrayLiteralExpression(node), true, message);
+	assert.equal(ts.isArrayLiteralExpression(node), true, maybe_Error(message));
 }
 
 export function isArrayTypeNode(
@@ -308,7 +310,7 @@ export function isArrayTypeNode(
 		| string
 		| Error = `expected ArrayTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ArrayTypeNode {
-	assert.equal(ts.isArrayTypeNode(node), true, message);
+	assert.equal(ts.isArrayTypeNode(node), true, maybe_Error(message));
 }
 
 export function isArrowFunction(
@@ -317,7 +319,7 @@ export function isArrowFunction(
 		| string
 		| Error = `expected ArrowFunction, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ArrowFunction {
-	assert.equal(ts.isArrowFunction(node), true, message);
+	assert.equal(ts.isArrowFunction(node), true, maybe_Error(message));
 }
 
 export function isAsExpression(
@@ -326,7 +328,7 @@ export function isAsExpression(
 		| string
 		| Error = `expected AsExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is AsExpression {
-	assert.equal(ts.isAsExpression(node), true, message);
+	assert.equal(ts.isAsExpression(node), true, maybe_Error(message));
 }
 
 export function isAssertionExpression(
@@ -335,7 +337,7 @@ export function isAssertionExpression(
 		| string
 		| Error = `expected AssertionExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is AssertionExpression {
-	assert.equal(ts.isAssertionExpression(node), true, message);
+	assert.equal(ts.isAssertionExpression(node), true, maybe_Error(message));
 }
 
 export function isAssertsKeyword(
@@ -344,7 +346,7 @@ export function isAssertsKeyword(
 		| string
 		| Error = `expected AssertsKeyword, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is AssertsKeyword {
-	assert.equal(ts.isAssertsKeyword(node), true, message);
+	assert.equal(ts.isAssertsKeyword(node), true, maybe_Error(message));
 }
 
 export function isAsteriskToken(
@@ -353,7 +355,7 @@ export function isAsteriskToken(
 		| string
 		| Error = `expected AsteriskToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is AsteriskToken {
-	assert.equal(ts.isAsteriskToken(node), true, message);
+	assert.equal(ts.isAsteriskToken(node), true, maybe_Error(message));
 }
 
 export function isAutoAccessorPropertyDeclaration(
@@ -362,7 +364,11 @@ export function isAutoAccessorPropertyDeclaration(
 		| string
 		| Error = `expected AutoAccessorPropertyDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is AutoAccessorPropertyDeclaration {
-	assert.equal(ts.isAutoAccessorPropertyDeclaration(node), true, message);
+	assert.equal(
+		ts.isAutoAccessorPropertyDeclaration(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isAwaitExpression(
@@ -371,7 +377,7 @@ export function isAwaitExpression(
 		| string
 		| Error = `expected AwaitExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is AwaitExpression {
-	assert.equal(ts.isAwaitExpression(node), true, message);
+	assert.equal(ts.isAwaitExpression(node), true, maybe_Error(message));
 }
 
 export function isAwaitKeyword(
@@ -380,7 +386,7 @@ export function isAwaitKeyword(
 		| string
 		| Error = `expected AwaitKeyword, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is AwaitKeyword {
-	assert.equal(ts.isAwaitKeyword(node), true, message);
+	assert.equal(ts.isAwaitKeyword(node), true, maybe_Error(message));
 }
 
 export function isBigIntLiteral(
@@ -389,7 +395,7 @@ export function isBigIntLiteral(
 		| string
 		| Error = `expected BigIntLiteral, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is BigIntLiteral {
-	assert.equal(ts.isBigIntLiteral(node), true, message);
+	assert.equal(ts.isBigIntLiteral(node), true, maybe_Error(message));
 }
 
 export function isBinaryExpression(
@@ -398,7 +404,7 @@ export function isBinaryExpression(
 		| string
 		| Error = `expected BinaryExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is BinaryExpression {
-	assert.equal(ts.isBinaryExpression(node), true, message);
+	assert.equal(ts.isBinaryExpression(node), true, maybe_Error(message));
 }
 
 export function isBinaryOperatorToken(
@@ -407,7 +413,7 @@ export function isBinaryOperatorToken(
 		| string
 		| Error = `expected BinaryOperatorToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is BinaryOperatorToken {
-	assert.equal(ts.isBinaryOperatorToken(node), true, message);
+	assert.equal(ts.isBinaryOperatorToken(node), true, maybe_Error(message));
 }
 
 export function isBindingElement(
@@ -416,7 +422,7 @@ export function isBindingElement(
 		| string
 		| Error = `expected BindingElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is BindingElement {
-	assert.equal(ts.isBindingElement(node), true, message);
+	assert.equal(ts.isBindingElement(node), true, maybe_Error(message));
 }
 
 export function isBindingName(
@@ -425,7 +431,7 @@ export function isBindingName(
 		| string
 		| Error = `expected BindingName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is BindingName {
-	assert.equal(ts.isBindingName(node), true, message);
+	assert.equal(ts.isBindingName(node), true, maybe_Error(message));
 }
 
 export function isBlock(
@@ -434,7 +440,7 @@ export function isBlock(
 		| string
 		| Error = `expected Block, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is Block {
-	assert.equal(ts.isBlock(node), true, message);
+	assert.equal(ts.isBlock(node), true, maybe_Error(message));
 }
 
 export function isBreakOrContinueStatement(
@@ -443,7 +449,7 @@ export function isBreakOrContinueStatement(
 		| string
 		| Error = `expected BreakOrContinueStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is BreakOrContinueStatement {
-	assert.equal(ts.isBreakOrContinueStatement(node), true, message);
+	assert.equal(ts.isBreakOrContinueStatement(node), true, maybe_Error(message));
 }
 
 export function isBreakStatement(
@@ -452,7 +458,7 @@ export function isBreakStatement(
 		| string
 		| Error = `expected BreakStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is BreakStatement {
-	assert.equal(ts.isBreakStatement(node), true, message);
+	assert.equal(ts.isBreakStatement(node), true, maybe_Error(message));
 }
 
 export function isBundle(
@@ -461,7 +467,7 @@ export function isBundle(
 		| string
 		| Error = `expected Bundle, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is Bundle {
-	assert.equal(ts.isBundle(node), true, message);
+	assert.equal(ts.isBundle(node), true, maybe_Error(message));
 }
 
 export function isCallChain(
@@ -470,7 +476,7 @@ export function isCallChain(
 		| string
 		| Error = `expected CallChain, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is CallChain {
-	assert.equal(ts.isCallChain(node), true, message);
+	assert.equal(ts.isCallChain(node), true, maybe_Error(message));
 }
 
 export function isCallExpression(
@@ -479,7 +485,7 @@ export function isCallExpression(
 		| string
 		| Error = `expected CallExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is CallExpression {
-	assert.equal(ts.isCallExpression(node), true, message);
+	assert.equal(ts.isCallExpression(node), true, maybe_Error(message));
 }
 
 export function isCallLikeExpression(
@@ -488,7 +494,7 @@ export function isCallLikeExpression(
 		| string
 		| Error = `expected CallLikeExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is CallLikeExpression {
-	assert.equal(ts.isCallLikeExpression(node), true, message);
+	assert.equal(ts.isCallLikeExpression(node), true, maybe_Error(message));
 }
 
 export function isCallSignatureDeclaration(
@@ -497,7 +503,7 @@ export function isCallSignatureDeclaration(
 		| string
 		| Error = `expected CallSignatureDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is CallSignatureDeclaration {
-	assert.equal(ts.isCallSignatureDeclaration(node), true, message);
+	assert.equal(ts.isCallSignatureDeclaration(node), true, maybe_Error(message));
 }
 
 export function isCaseBlock(
@@ -506,7 +512,7 @@ export function isCaseBlock(
 		| string
 		| Error = `expected CaseBlock, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is CaseBlock {
-	assert.equal(ts.isCaseBlock(node), true, message);
+	assert.equal(ts.isCaseBlock(node), true, maybe_Error(message));
 }
 
 export function isCaseClause(
@@ -515,7 +521,7 @@ export function isCaseClause(
 		| string
 		| Error = `expected CaseClause, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is CaseClause {
-	assert.equal(ts.isCaseClause(node), true, message);
+	assert.equal(ts.isCaseClause(node), true, maybe_Error(message));
 }
 
 export function isCaseOrDefaultClause(
@@ -524,7 +530,7 @@ export function isCaseOrDefaultClause(
 		| string
 		| Error = `expected CaseOrDefaultClause, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is CaseOrDefaultClause {
-	assert.equal(ts.isCaseOrDefaultClause(node), true, message);
+	assert.equal(ts.isCaseOrDefaultClause(node), true, maybe_Error(message));
 }
 
 export function isCatchClause(
@@ -533,7 +539,7 @@ export function isCatchClause(
 		| string
 		| Error = `expected CatchClause, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is CatchClause {
-	assert.equal(ts.isCatchClause(node), true, message);
+	assert.equal(ts.isCatchClause(node), true, maybe_Error(message));
 }
 
 export function isClassDeclaration(
@@ -542,7 +548,7 @@ export function isClassDeclaration(
 		| string
 		| Error = `expected ClassDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ClassDeclaration {
-	assert.equal(ts.isClassDeclaration(node), true, message);
+	assert.equal(ts.isClassDeclaration(node), true, maybe_Error(message));
 }
 
 export function isClassElement(
@@ -551,7 +557,7 @@ export function isClassElement(
 		| string
 		| Error = `expected ClassElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ClassElement {
-	assert.equal(ts.isClassElement(node), true, message);
+	assert.equal(ts.isClassElement(node), true, maybe_Error(message));
 }
 
 export function isClassExpression(
@@ -560,7 +566,7 @@ export function isClassExpression(
 		| string
 		| Error = `expected ClassExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ClassExpression {
-	assert.equal(ts.isClassExpression(node), true, message);
+	assert.equal(ts.isClassExpression(node), true, maybe_Error(message));
 }
 
 export function isClassLike(
@@ -569,7 +575,7 @@ export function isClassLike(
 		| string
 		| Error = `expected ClassLikeDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ClassLikeDeclaration {
-	assert.equal(ts.isClassLike(node), true, message);
+	assert.equal(ts.isClassLike(node), true, maybe_Error(message));
 }
 
 export function isClassStaticBlockDeclaration(
@@ -578,7 +584,11 @@ export function isClassStaticBlockDeclaration(
 		| string
 		| Error = `expected ClassStaticBlockDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ClassStaticBlockDeclaration {
-	assert.equal(ts.isClassStaticBlockDeclaration(node), true, message);
+	assert.equal(
+		ts.isClassStaticBlockDeclaration(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isColonToken(
@@ -587,7 +597,7 @@ export function isColonToken(
 		| string
 		| Error = `expected ColonToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ColonToken {
-	assert.equal(ts.isColonToken(node), true, message);
+	assert.equal(ts.isColonToken(node), true, maybe_Error(message));
 }
 
 export function isCommaListExpression(
@@ -596,7 +606,7 @@ export function isCommaListExpression(
 		| string
 		| Error = `expected CommaListExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is CommaListExpression {
-	assert.equal(ts.isCommaListExpression(node), true, message);
+	assert.equal(ts.isCommaListExpression(node), true, maybe_Error(message));
 }
 
 export function isComputedPropertyName(
@@ -605,7 +615,7 @@ export function isComputedPropertyName(
 		| string
 		| Error = `expected ComputedPropertyName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ComputedPropertyName {
-	assert.equal(ts.isComputedPropertyName(node), true, message);
+	assert.equal(ts.isComputedPropertyName(node), true, maybe_Error(message));
 }
 
 export function isConciseBody(
@@ -614,7 +624,7 @@ export function isConciseBody(
 		| string
 		| Error = `expected ConciseBody, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ConciseBody {
-	assert.equal(ts.isConciseBody(node), true, message);
+	assert.equal(ts.isConciseBody(node), true, maybe_Error(message));
 }
 
 export function isConditionalExpression(
@@ -623,7 +633,7 @@ export function isConditionalExpression(
 		| string
 		| Error = `expected ConditionalExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ConditionalExpression {
-	assert.equal(ts.isConditionalExpression(node), true, message);
+	assert.equal(ts.isConditionalExpression(node), true, maybe_Error(message));
 }
 
 export function isConditionalTypeNode(
@@ -632,7 +642,7 @@ export function isConditionalTypeNode(
 		| string
 		| Error = `expected ConditionalTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ConditionalTypeNode {
-	assert.equal(ts.isConditionalTypeNode(node), true, message);
+	assert.equal(ts.isConditionalTypeNode(node), true, maybe_Error(message));
 }
 
 export function isConstructorDeclaration(
@@ -641,7 +651,7 @@ export function isConstructorDeclaration(
 		| string
 		| Error = `expected ConstructorDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ConstructorDeclaration {
-	assert.equal(ts.isConstructorDeclaration(node), true, message);
+	assert.equal(ts.isConstructorDeclaration(node), true, maybe_Error(message));
 }
 
 export function isConstructorTypeNode(
@@ -650,7 +660,7 @@ export function isConstructorTypeNode(
 		| string
 		| Error = `expected ConstructorTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ConstructorTypeNode {
-	assert.equal(ts.isConstructorTypeNode(node), true, message);
+	assert.equal(ts.isConstructorTypeNode(node), true, maybe_Error(message));
 }
 
 export function isConstructSignatureDeclaration(
@@ -659,7 +669,11 @@ export function isConstructSignatureDeclaration(
 		| string
 		| Error = `expected ConstructSignatureDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ConstructSignatureDeclaration {
-	assert.equal(ts.isConstructSignatureDeclaration(node), true, message);
+	assert.equal(
+		ts.isConstructSignatureDeclaration(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isContinueStatement(
@@ -668,7 +682,7 @@ export function isContinueStatement(
 		| string
 		| Error = `expected ContinueStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ContinueStatement {
-	assert.equal(ts.isContinueStatement(node), true, message);
+	assert.equal(ts.isContinueStatement(node), true, maybe_Error(message));
 }
 
 export function isDebuggerStatement(
@@ -677,7 +691,7 @@ export function isDebuggerStatement(
 		| string
 		| Error = `expected DebuggerStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is DebuggerStatement {
-	assert.equal(ts.isDebuggerStatement(node), true, message);
+	assert.equal(ts.isDebuggerStatement(node), true, maybe_Error(message));
 }
 
 export function isDeclarationStatement(
@@ -686,7 +700,7 @@ export function isDeclarationStatement(
 		| string
 		| Error = `expected DeclarationStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is DeclarationStatement {
-	assert.equal(ts.isDeclarationStatement(node), true, message);
+	assert.equal(ts.isDeclarationStatement(node), true, maybe_Error(message));
 }
 
 export function isDecorator(
@@ -695,7 +709,7 @@ export function isDecorator(
 		| string
 		| Error = `expected Decorator, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is Decorator {
-	assert.equal(ts.isDecorator(node), true, message);
+	assert.equal(ts.isDecorator(node), true, maybe_Error(message));
 }
 
 export function isDefaultClause(
@@ -704,7 +718,7 @@ export function isDefaultClause(
 		| string
 		| Error = `expected DefaultClause, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is DefaultClause {
-	assert.equal(ts.isDefaultClause(node), true, message);
+	assert.equal(ts.isDefaultClause(node), true, maybe_Error(message));
 }
 
 export function isDeleteExpression(
@@ -713,7 +727,7 @@ export function isDeleteExpression(
 		| string
 		| Error = `expected DeleteExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is DeleteExpression {
-	assert.equal(ts.isDeleteExpression(node), true, message);
+	assert.equal(ts.isDeleteExpression(node), true, maybe_Error(message));
 }
 
 export function isDoStatement(
@@ -722,7 +736,7 @@ export function isDoStatement(
 		| string
 		| Error = `expected DoStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is DoStatement {
-	assert.equal(ts.isDoStatement(node), true, message);
+	assert.equal(ts.isDoStatement(node), true, maybe_Error(message));
 }
 
 export function isDotDotDotToken(
@@ -731,7 +745,7 @@ export function isDotDotDotToken(
 		| string
 		| Error = `expected DotDotDotToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is DotDotDotToken {
-	assert.equal(ts.isDotDotDotToken(node), true, message);
+	assert.equal(ts.isDotDotDotToken(node), true, maybe_Error(message));
 }
 
 export function isElementAccessChain(
@@ -740,7 +754,7 @@ export function isElementAccessChain(
 		| string
 		| Error = `expected ElementAccessChain, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ElementAccessChain {
-	assert.equal(ts.isElementAccessChain(node), true, message);
+	assert.equal(ts.isElementAccessChain(node), true, maybe_Error(message));
 }
 
 export function isElementAccessExpression(
@@ -749,7 +763,7 @@ export function isElementAccessExpression(
 		| string
 		| Error = `expected ElementAccessExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ElementAccessExpression {
-	assert.equal(ts.isElementAccessExpression(node), true, message);
+	assert.equal(ts.isElementAccessExpression(node), true, maybe_Error(message));
 }
 
 export function isEmptyBindingPattern(
@@ -758,7 +772,7 @@ export function isEmptyBindingPattern(
 		| string
 		| Error = `expected BindingPattern, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is BindingPattern {
-	assert.equal(ts.isEmptyBindingPattern(node), true, message);
+	assert.equal(ts.isEmptyBindingPattern(node), true, maybe_Error(message));
 }
 
 export function isEmptyStatement(
@@ -767,7 +781,7 @@ export function isEmptyStatement(
 		| string
 		| Error = `expected EmptyStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is EmptyStatement {
-	assert.equal(ts.isEmptyStatement(node), true, message);
+	assert.equal(ts.isEmptyStatement(node), true, maybe_Error(message));
 }
 
 export function isEntityName(
@@ -776,7 +790,7 @@ export function isEntityName(
 		| string
 		| Error = `expected EntityName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is EntityName {
-	assert.equal(ts.isEntityName(node), true, message);
+	assert.equal(ts.isEntityName(node), true, maybe_Error(message));
 }
 
 export function isEnumDeclaration(
@@ -785,7 +799,7 @@ export function isEnumDeclaration(
 		| string
 		| Error = `expected EnumDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is EnumDeclaration {
-	assert.equal(ts.isEnumDeclaration(node), true, message);
+	assert.equal(ts.isEnumDeclaration(node), true, maybe_Error(message));
 }
 
 export function isEnumMember(
@@ -794,7 +808,7 @@ export function isEnumMember(
 		| string
 		| Error = `expected EnumMember, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is EnumMember {
-	assert.equal(ts.isEnumMember(node), true, message);
+	assert.equal(ts.isEnumMember(node), true, maybe_Error(message));
 }
 
 export function isEqualsGreaterThanToken(
@@ -803,7 +817,7 @@ export function isEqualsGreaterThanToken(
 		| string
 		| Error = `expected EqualsGreaterThanToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is EqualsGreaterThanToken {
-	assert.equal(ts.isEqualsGreaterThanToken(node), true, message);
+	assert.equal(ts.isEqualsGreaterThanToken(node), true, maybe_Error(message));
 }
 
 export function isExclamationToken(
@@ -812,7 +826,7 @@ export function isExclamationToken(
 		| string
 		| Error = `expected ExclamationToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ExclamationToken {
-	assert.equal(ts.isExclamationToken(node), true, message);
+	assert.equal(ts.isExclamationToken(node), true, maybe_Error(message));
 }
 
 export function isExportAssignment(
@@ -821,7 +835,7 @@ export function isExportAssignment(
 		| string
 		| Error = `expected ExportAssignment, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ExportAssignment {
-	assert.equal(ts.isExportAssignment(node), true, message);
+	assert.equal(ts.isExportAssignment(node), true, maybe_Error(message));
 }
 
 export function isExportDeclaration(
@@ -830,7 +844,7 @@ export function isExportDeclaration(
 		| string
 		| Error = `expected ExportDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ExportDeclaration {
-	assert.equal(ts.isExportDeclaration(node), true, message);
+	assert.equal(ts.isExportDeclaration(node), true, maybe_Error(message));
 }
 
 export function isExportSpecifier(
@@ -839,7 +853,7 @@ export function isExportSpecifier(
 		| string
 		| Error = `expected ExportSpecifier, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ExportSpecifier {
-	assert.equal(ts.isExportSpecifier(node), true, message);
+	assert.equal(ts.isExportSpecifier(node), true, maybe_Error(message));
 }
 
 export function isExpression(
@@ -848,7 +862,7 @@ export function isExpression(
 		| string
 		| Error = `expected Expression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is Expression {
-	assert.equal(ts.isExpression(node), true, message);
+	assert.equal(ts.isExpression(node), true, maybe_Error(message));
 }
 
 export function isExpressionStatement(
@@ -857,7 +871,7 @@ export function isExpressionStatement(
 		| string
 		| Error = `expected ExpressionStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ExpressionStatement {
-	assert.equal(ts.isExpressionStatement(node), true, message);
+	assert.equal(ts.isExpressionStatement(node), true, maybe_Error(message));
 }
 
 export function isExpressionWithTypeArguments(
@@ -866,7 +880,11 @@ export function isExpressionWithTypeArguments(
 		| string
 		| Error = `expected ExpressionWithTypeArguments, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ExpressionWithTypeArguments {
-	assert.equal(ts.isExpressionWithTypeArguments(node), true, message);
+	assert.equal(
+		ts.isExpressionWithTypeArguments(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isExternalModuleReference(
@@ -875,7 +893,7 @@ export function isExternalModuleReference(
 		| string
 		| Error = `expected ExternalModuleReference, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ExternalModuleReference {
-	assert.equal(ts.isExternalModuleReference(node), true, message);
+	assert.equal(ts.isExternalModuleReference(node), true, maybe_Error(message));
 }
 
 export function isForInitializer(
@@ -884,7 +902,7 @@ export function isForInitializer(
 		| string
 		| Error = `expected ForInitializer, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ForInitializer {
-	assert.equal(ts.isForInitializer(node), true, message);
+	assert.equal(ts.isForInitializer(node), true, maybe_Error(message));
 }
 
 export function isForInStatement(
@@ -893,7 +911,7 @@ export function isForInStatement(
 		| string
 		| Error = `expected ForInStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ForInStatement {
-	assert.equal(ts.isForInStatement(node), true, message);
+	assert.equal(ts.isForInStatement(node), true, maybe_Error(message));
 }
 
 export function isForOfStatement(
@@ -902,7 +920,7 @@ export function isForOfStatement(
 		| string
 		| Error = `expected ForOfStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ForOfStatement {
-	assert.equal(ts.isForOfStatement(node), true, message);
+	assert.equal(ts.isForOfStatement(node), true, maybe_Error(message));
 }
 
 export function isForStatement(
@@ -911,7 +929,7 @@ export function isForStatement(
 		| string
 		| Error = `expected ForStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ForStatement {
-	assert.equal(ts.isForStatement(node), true, message);
+	assert.equal(ts.isForStatement(node), true, maybe_Error(message));
 }
 
 export function isFunctionDeclaration(
@@ -920,7 +938,7 @@ export function isFunctionDeclaration(
 		| string
 		| Error = `expected FunctionDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is FunctionDeclaration {
-	assert.equal(ts.isFunctionDeclaration(node), true, message);
+	assert.equal(ts.isFunctionDeclaration(node), true, maybe_Error(message));
 }
 
 export function isFunctionExpression(
@@ -929,7 +947,7 @@ export function isFunctionExpression(
 		| string
 		| Error = `expected FunctionExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is FunctionExpression {
-	assert.equal(ts.isFunctionExpression(node), true, message);
+	assert.equal(ts.isFunctionExpression(node), true, maybe_Error(message));
 }
 
 export function isFunctionTypeNode(
@@ -938,7 +956,7 @@ export function isFunctionTypeNode(
 		| string
 		| Error = `expected FunctionTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is FunctionTypeNode {
-	assert.equal(ts.isFunctionTypeNode(node), true, message);
+	assert.equal(ts.isFunctionTypeNode(node), true, maybe_Error(message));
 }
 
 export function isGetAccessor(
@@ -947,7 +965,7 @@ export function isGetAccessor(
 		| string
 		| Error = `expected GetAccessorDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is GetAccessorDeclaration {
-	assert.equal(ts.isGetAccessor(node), true, message);
+	assert.equal(ts.isGetAccessor(node), true, maybe_Error(message));
 }
 
 export function isGetAccessorDeclaration(
@@ -956,7 +974,7 @@ export function isGetAccessorDeclaration(
 		| string
 		| Error = `expected GetAccessorDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is GetAccessorDeclaration {
-	assert.equal(ts.isGetAccessorDeclaration(node), true, message);
+	assert.equal(ts.isGetAccessorDeclaration(node), true, maybe_Error(message));
 }
 
 export function isHeritageClause(
@@ -965,7 +983,7 @@ export function isHeritageClause(
 		| string
 		| Error = `expected HeritageClause, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is HeritageClause {
-	assert.equal(ts.isHeritageClause(node), true, message);
+	assert.equal(ts.isHeritageClause(node), true, maybe_Error(message));
 }
 
 export function isIdentifier(
@@ -974,7 +992,7 @@ export function isIdentifier(
 		| string
 		| Error = `expected Identifier, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is Identifier {
-	assert.equal(ts.isIdentifier(node), true, message);
+	assert.equal(ts.isIdentifier(node), true, maybe_Error(message));
 }
 
 export function isIfStatement(
@@ -983,7 +1001,7 @@ export function isIfStatement(
 		| string
 		| Error = `expected IfStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is IfStatement {
-	assert.equal(ts.isIfStatement(node), true, message);
+	assert.equal(ts.isIfStatement(node), true, maybe_Error(message));
 }
 
 export function isImportAttribute(
@@ -992,7 +1010,7 @@ export function isImportAttribute(
 		| string
 		| Error = `expected ImportAttribute, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ImportAttribute {
-	assert.equal(ts.isImportAttribute(node), true, message);
+	assert.equal(ts.isImportAttribute(node), true, maybe_Error(message));
 }
 
 export function isImportAttributeName(
@@ -1001,7 +1019,7 @@ export function isImportAttributeName(
 		| string
 		| Error = `expected ImportAttributeName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ImportAttributeName {
-	assert.equal(ts.isImportAttributeName(node), true, message);
+	assert.equal(ts.isImportAttributeName(node), true, maybe_Error(message));
 }
 
 export function isImportAttributes(
@@ -1010,7 +1028,7 @@ export function isImportAttributes(
 		| string
 		| Error = `expected ImportAttributes, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ImportAttributes {
-	assert.equal(ts.isImportAttributes(node), true, message);
+	assert.equal(ts.isImportAttributes(node), true, maybe_Error(message));
 }
 
 export function isImportClause(
@@ -1019,7 +1037,7 @@ export function isImportClause(
 		| string
 		| Error = `expected ImportClause, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ImportClause {
-	assert.equal(ts.isImportClause(node), true, message);
+	assert.equal(ts.isImportClause(node), true, maybe_Error(message));
 }
 
 export function isImportDeclaration(
@@ -1028,7 +1046,7 @@ export function isImportDeclaration(
 		| string
 		| Error = `expected ImportDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ImportDeclaration {
-	assert.equal(ts.isImportDeclaration(node), true, message);
+	assert.equal(ts.isImportDeclaration(node), true, maybe_Error(message));
 }
 
 export function isImportEqualsDeclaration(
@@ -1037,7 +1055,7 @@ export function isImportEqualsDeclaration(
 		| string
 		| Error = `expected ImportEqualsDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ImportEqualsDeclaration {
-	assert.equal(ts.isImportEqualsDeclaration(node), true, message);
+	assert.equal(ts.isImportEqualsDeclaration(node), true, maybe_Error(message));
 }
 
 export function isImportSpecifier(
@@ -1046,7 +1064,7 @@ export function isImportSpecifier(
 		| string
 		| Error = `expected ImportSpecifier, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ImportSpecifier {
-	assert.equal(ts.isImportSpecifier(node), true, message);
+	assert.equal(ts.isImportSpecifier(node), true, maybe_Error(message));
 }
 
 export function isImportTypeNode(
@@ -1055,7 +1073,7 @@ export function isImportTypeNode(
 		| string
 		| Error = `expected ImportTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ImportTypeNode {
-	assert.equal(ts.isImportTypeNode(node), true, message);
+	assert.equal(ts.isImportTypeNode(node), true, maybe_Error(message));
 }
 
 export function isIndexedAccessTypeNode(
@@ -1064,7 +1082,7 @@ export function isIndexedAccessTypeNode(
 		| string
 		| Error = `expected IndexedAccessTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is IndexedAccessTypeNode {
-	assert.equal(ts.isIndexedAccessTypeNode(node), true, message);
+	assert.equal(ts.isIndexedAccessTypeNode(node), true, maybe_Error(message));
 }
 
 export function isIndexSignatureDeclaration(
@@ -1073,7 +1091,11 @@ export function isIndexSignatureDeclaration(
 		| string
 		| Error = `expected IndexSignatureDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is IndexSignatureDeclaration {
-	assert.equal(ts.isIndexSignatureDeclaration(node), true, message);
+	assert.equal(
+		ts.isIndexSignatureDeclaration(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isInferTypeNode(
@@ -1082,7 +1104,7 @@ export function isInferTypeNode(
 		| string
 		| Error = `expected InferTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is InferTypeNode {
-	assert.equal(ts.isInferTypeNode(node), true, message);
+	assert.equal(ts.isInferTypeNode(node), true, maybe_Error(message));
 }
 
 export function isInterfaceDeclaration(
@@ -1091,7 +1113,7 @@ export function isInterfaceDeclaration(
 		| string
 		| Error = `expected InterfaceDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is InterfaceDeclaration {
-	assert.equal(ts.isInterfaceDeclaration(node), true, message);
+	assert.equal(ts.isInterfaceDeclaration(node), true, maybe_Error(message));
 }
 
 export function isIntersectionTypeNode(
@@ -1100,7 +1122,7 @@ export function isIntersectionTypeNode(
 		| string
 		| Error = `expected IntersectionTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is IntersectionTypeNode {
-	assert.equal(ts.isIntersectionTypeNode(node), true, message);
+	assert.equal(ts.isIntersectionTypeNode(node), true, maybe_Error(message));
 }
 
 export function isJSDoc(
@@ -1109,7 +1131,7 @@ export function isJSDoc(
 		| string
 		| Error = `expected JSDoc, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDoc {
-	assert.equal(ts.isJSDoc(node), true, message);
+	assert.equal(ts.isJSDoc(node), true, maybe_Error(message));
 }
 
 export function isJSDocAllType(
@@ -1118,7 +1140,7 @@ export function isJSDocAllType(
 		| string
 		| Error = `expected JSDocAllType, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocAllType {
-	assert.equal(ts.isJSDocAllType(node), true, message);
+	assert.equal(ts.isJSDocAllType(node), true, maybe_Error(message));
 }
 
 export function isJSDocAugmentsTag(
@@ -1127,7 +1149,7 @@ export function isJSDocAugmentsTag(
 		| string
 		| Error = `expected JSDocAugmentsTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocAugmentsTag {
-	assert.equal(ts.isJSDocAugmentsTag(node), true, message);
+	assert.equal(ts.isJSDocAugmentsTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocAuthorTag(
@@ -1136,7 +1158,7 @@ export function isJSDocAuthorTag(
 		| string
 		| Error = `expected JSDocAuthorTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocAuthorTag {
-	assert.equal(ts.isJSDocAuthorTag(node), true, message);
+	assert.equal(ts.isJSDocAuthorTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocCallbackTag(
@@ -1145,7 +1167,7 @@ export function isJSDocCallbackTag(
 		| string
 		| Error = `expected JSDocCallbackTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocCallbackTag {
-	assert.equal(ts.isJSDocCallbackTag(node), true, message);
+	assert.equal(ts.isJSDocCallbackTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocClassTag(
@@ -1154,7 +1176,7 @@ export function isJSDocClassTag(
 		| string
 		| Error = `expected JSDocClassTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocClassTag {
-	assert.equal(ts.isJSDocClassTag(node), true, message);
+	assert.equal(ts.isJSDocClassTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocDeprecatedTag(
@@ -1163,7 +1185,7 @@ export function isJSDocDeprecatedTag(
 		| string
 		| Error = `expected JSDocDeprecatedTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocDeprecatedTag {
-	assert.equal(ts.isJSDocDeprecatedTag(node), true, message);
+	assert.equal(ts.isJSDocDeprecatedTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocEnumTag(
@@ -1172,7 +1194,7 @@ export function isJSDocEnumTag(
 		| string
 		| Error = `expected JSDocEnumTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocEnumTag {
-	assert.equal(ts.isJSDocEnumTag(node), true, message);
+	assert.equal(ts.isJSDocEnumTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocFunctionType(
@@ -1181,7 +1203,7 @@ export function isJSDocFunctionType(
 		| string
 		| Error = `expected JSDocFunctionType, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocFunctionType {
-	assert.equal(ts.isJSDocFunctionType(node), true, message);
+	assert.equal(ts.isJSDocFunctionType(node), true, maybe_Error(message));
 }
 
 export function isJSDocImplementsTag(
@@ -1190,7 +1212,7 @@ export function isJSDocImplementsTag(
 		| string
 		| Error = `expected JSDocImplementsTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocImplementsTag {
-	assert.equal(ts.isJSDocImplementsTag(node), true, message);
+	assert.equal(ts.isJSDocImplementsTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocImportTag(
@@ -1199,7 +1221,7 @@ export function isJSDocImportTag(
 		| string
 		| Error = `expected JSDocImportTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocImportTag {
-	assert.equal(ts.isJSDocImportTag(node), true, message);
+	assert.equal(ts.isJSDocImportTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocLink(
@@ -1208,7 +1230,7 @@ export function isJSDocLink(
 		| string
 		| Error = `expected JSDocLink, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocLink {
-	assert.equal(ts.isJSDocLink(node), true, message);
+	assert.equal(ts.isJSDocLink(node), true, maybe_Error(message));
 }
 
 export function isJSDocLinkCode(
@@ -1217,7 +1239,7 @@ export function isJSDocLinkCode(
 		| string
 		| Error = `expected JSDocLinkCode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocLinkCode {
-	assert.equal(ts.isJSDocLinkCode(node), true, message);
+	assert.equal(ts.isJSDocLinkCode(node), true, maybe_Error(message));
 }
 
 export function isJSDocLinkPlain(
@@ -1226,7 +1248,7 @@ export function isJSDocLinkPlain(
 		| string
 		| Error = `expected JSDocLinkPlain, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocLinkPlain {
-	assert.equal(ts.isJSDocLinkPlain(node), true, message);
+	assert.equal(ts.isJSDocLinkPlain(node), true, maybe_Error(message));
 }
 
 export function isJSDocMemberName(
@@ -1235,7 +1257,7 @@ export function isJSDocMemberName(
 		| string
 		| Error = `expected JSDocMemberName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocMemberName {
-	assert.equal(ts.isJSDocMemberName(node), true, message);
+	assert.equal(ts.isJSDocMemberName(node), true, maybe_Error(message));
 }
 
 export function isJSDocNamepathType(
@@ -1244,7 +1266,7 @@ export function isJSDocNamepathType(
 		| string
 		| Error = `expected JSDocNamepathType, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocNamepathType {
-	assert.equal(ts.isJSDocNamepathType(node), true, message);
+	assert.equal(ts.isJSDocNamepathType(node), true, maybe_Error(message));
 }
 
 export function isJSDocNameReference(
@@ -1253,7 +1275,7 @@ export function isJSDocNameReference(
 		| string
 		| Error = `expected JSDocNameReference, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocNameReference {
-	assert.equal(ts.isJSDocNameReference(node), true, message);
+	assert.equal(ts.isJSDocNameReference(node), true, maybe_Error(message));
 }
 
 export function isJSDocNonNullableType(
@@ -1262,7 +1284,7 @@ export function isJSDocNonNullableType(
 		| string
 		| Error = `expected JSDocNonNullableType, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocNonNullableType {
-	assert.equal(ts.isJSDocNonNullableType(node), true, message);
+	assert.equal(ts.isJSDocNonNullableType(node), true, maybe_Error(message));
 }
 
 export function isJSDocNullableType(
@@ -1271,7 +1293,7 @@ export function isJSDocNullableType(
 		| string
 		| Error = `expected JSDocNullableType, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocNullableType {
-	assert.equal(ts.isJSDocNullableType(node), true, message);
+	assert.equal(ts.isJSDocNullableType(node), true, maybe_Error(message));
 }
 
 export function isJSDocOptionalType(
@@ -1280,7 +1302,7 @@ export function isJSDocOptionalType(
 		| string
 		| Error = `expected JSDocOptionalType, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocOptionalType {
-	assert.equal(ts.isJSDocOptionalType(node), true, message);
+	assert.equal(ts.isJSDocOptionalType(node), true, maybe_Error(message));
 }
 
 export function isJSDocOverloadTag(
@@ -1289,7 +1311,7 @@ export function isJSDocOverloadTag(
 		| string
 		| Error = `expected JSDocOverloadTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocOverloadTag {
-	assert.equal(ts.isJSDocOverloadTag(node), true, message);
+	assert.equal(ts.isJSDocOverloadTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocOverrideTag(
@@ -1298,7 +1320,7 @@ export function isJSDocOverrideTag(
 		| string
 		| Error = `expected JSDocOverrideTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocOverrideTag {
-	assert.equal(ts.isJSDocOverrideTag(node), true, message);
+	assert.equal(ts.isJSDocOverrideTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocParameterTag(
@@ -1307,7 +1329,7 @@ export function isJSDocParameterTag(
 		| string
 		| Error = `expected JSDocParameterTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocParameterTag {
-	assert.equal(ts.isJSDocParameterTag(node), true, message);
+	assert.equal(ts.isJSDocParameterTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocPrivateTag(
@@ -1316,7 +1338,7 @@ export function isJSDocPrivateTag(
 		| string
 		| Error = `expected JSDocPrivateTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocPrivateTag {
-	assert.equal(ts.isJSDocPrivateTag(node), true, message);
+	assert.equal(ts.isJSDocPrivateTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocPropertyLikeTag(
@@ -1325,7 +1347,7 @@ export function isJSDocPropertyLikeTag(
 		| string
 		| Error = `expected JSDocPropertyLikeTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocPropertyLikeTag {
-	assert.equal(ts.isJSDocPropertyLikeTag(node), true, message);
+	assert.equal(ts.isJSDocPropertyLikeTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocPropertyTag(
@@ -1334,7 +1356,7 @@ export function isJSDocPropertyTag(
 		| string
 		| Error = `expected JSDocPropertyTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocPropertyTag {
-	assert.equal(ts.isJSDocPropertyTag(node), true, message);
+	assert.equal(ts.isJSDocPropertyTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocProtectedTag(
@@ -1343,7 +1365,7 @@ export function isJSDocProtectedTag(
 		| string
 		| Error = `expected JSDocProtectedTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocProtectedTag {
-	assert.equal(ts.isJSDocProtectedTag(node), true, message);
+	assert.equal(ts.isJSDocProtectedTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocPublicTag(
@@ -1352,7 +1374,7 @@ export function isJSDocPublicTag(
 		| string
 		| Error = `expected JSDocPublicTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocPublicTag {
-	assert.equal(ts.isJSDocPublicTag(node), true, message);
+	assert.equal(ts.isJSDocPublicTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocReadonlyTag(
@@ -1361,7 +1383,7 @@ export function isJSDocReadonlyTag(
 		| string
 		| Error = `expected JSDocReadonlyTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocReadonlyTag {
-	assert.equal(ts.isJSDocReadonlyTag(node), true, message);
+	assert.equal(ts.isJSDocReadonlyTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocReturnTag(
@@ -1370,7 +1392,7 @@ export function isJSDocReturnTag(
 		| string
 		| Error = `expected JSDocReturnTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocReturnTag {
-	assert.equal(ts.isJSDocReturnTag(node), true, message);
+	assert.equal(ts.isJSDocReturnTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocSatisfiesTag(
@@ -1379,7 +1401,7 @@ export function isJSDocSatisfiesTag(
 		| string
 		| Error = `expected JSDocSatisfiesTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocSatisfiesTag {
-	assert.equal(ts.isJSDocSatisfiesTag(node), true, message);
+	assert.equal(ts.isJSDocSatisfiesTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocSeeTag(
@@ -1388,7 +1410,7 @@ export function isJSDocSeeTag(
 		| string
 		| Error = `expected JSDocSeeTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocSeeTag {
-	assert.equal(ts.isJSDocSeeTag(node), true, message);
+	assert.equal(ts.isJSDocSeeTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocSignature(
@@ -1397,7 +1419,7 @@ export function isJSDocSignature(
 		| string
 		| Error = `expected JSDocSignature, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocSignature {
-	assert.equal(ts.isJSDocSignature(node), true, message);
+	assert.equal(ts.isJSDocSignature(node), true, maybe_Error(message));
 }
 
 export function isJSDocTemplateTag(
@@ -1406,7 +1428,7 @@ export function isJSDocTemplateTag(
 		| string
 		| Error = `expected JSDocTemplateTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocTemplateTag {
-	assert.equal(ts.isJSDocTemplateTag(node), true, message);
+	assert.equal(ts.isJSDocTemplateTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocThisTag(
@@ -1415,7 +1437,7 @@ export function isJSDocThisTag(
 		| string
 		| Error = `expected JSDocThisTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocThisTag {
-	assert.equal(ts.isJSDocThisTag(node), true, message);
+	assert.equal(ts.isJSDocThisTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocThrowsTag(
@@ -1424,7 +1446,7 @@ export function isJSDocThrowsTag(
 		| string
 		| Error = `expected JSDocThrowsTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocThrowsTag {
-	assert.equal(ts.isJSDocThrowsTag(node), true, message);
+	assert.equal(ts.isJSDocThrowsTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocTypedefTag(
@@ -1433,7 +1455,7 @@ export function isJSDocTypedefTag(
 		| string
 		| Error = `expected JSDocTypedefTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocTypedefTag {
-	assert.equal(ts.isJSDocTypedefTag(node), true, message);
+	assert.equal(ts.isJSDocTypedefTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocTypeExpression(
@@ -1442,7 +1464,7 @@ export function isJSDocTypeExpression(
 		| string
 		| Error = `expected JSDocTypeExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocTypeExpression {
-	assert.equal(ts.isJSDocTypeExpression(node), true, message);
+	assert.equal(ts.isJSDocTypeExpression(node), true, maybe_Error(message));
 }
 
 export function isJSDocTypeLiteral(
@@ -1451,7 +1473,7 @@ export function isJSDocTypeLiteral(
 		| string
 		| Error = `expected JSDocTypeLiteral, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocTypeLiteral {
-	assert.equal(ts.isJSDocTypeLiteral(node), true, message);
+	assert.equal(ts.isJSDocTypeLiteral(node), true, maybe_Error(message));
 }
 
 export function isJSDocTypeTag(
@@ -1460,7 +1482,7 @@ export function isJSDocTypeTag(
 		| string
 		| Error = `expected JSDocTypeTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocTypeTag {
-	assert.equal(ts.isJSDocTypeTag(node), true, message);
+	assert.equal(ts.isJSDocTypeTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocUnknownTag(
@@ -1469,7 +1491,7 @@ export function isJSDocUnknownTag(
 		| string
 		| Error = `expected JSDocUnknownTag, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocUnknownTag {
-	assert.equal(ts.isJSDocUnknownTag(node), true, message);
+	assert.equal(ts.isJSDocUnknownTag(node), true, maybe_Error(message));
 }
 
 export function isJSDocUnknownType(
@@ -1478,7 +1500,7 @@ export function isJSDocUnknownType(
 		| string
 		| Error = `expected JSDocUnknownType, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocUnknownType {
-	assert.equal(ts.isJSDocUnknownType(node), true, message);
+	assert.equal(ts.isJSDocUnknownType(node), true, maybe_Error(message));
 }
 
 export function isJSDocVariadicType(
@@ -1487,7 +1509,7 @@ export function isJSDocVariadicType(
 		| string
 		| Error = `expected JSDocVariadicType, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JSDocVariadicType {
-	assert.equal(ts.isJSDocVariadicType(node), true, message);
+	assert.equal(ts.isJSDocVariadicType(node), true, maybe_Error(message));
 }
 
 export function isJsxAttribute(
@@ -1496,7 +1518,7 @@ export function isJsxAttribute(
 		| string
 		| Error = `expected JsxAttribute, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxAttribute {
-	assert.equal(ts.isJsxAttribute(node), true, message);
+	assert.equal(ts.isJsxAttribute(node), true, maybe_Error(message));
 }
 
 export function isJsxAttributeLike(
@@ -1505,7 +1527,7 @@ export function isJsxAttributeLike(
 		| string
 		| Error = `expected JsxAttributeLike, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxAttributeLike {
-	assert.equal(ts.isJsxAttributeLike(node), true, message);
+	assert.equal(ts.isJsxAttributeLike(node), true, maybe_Error(message));
 }
 
 export function isJsxAttributes(
@@ -1514,7 +1536,7 @@ export function isJsxAttributes(
 		| string
 		| Error = `expected JsxAttributes, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxAttributes {
-	assert.equal(ts.isJsxAttributes(node), true, message);
+	assert.equal(ts.isJsxAttributes(node), true, maybe_Error(message));
 }
 
 export function isJsxCallLike(
@@ -1523,7 +1545,7 @@ export function isJsxCallLike(
 		| string
 		| Error = `expected JsxCallLike, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxCallLike {
-	assert.equal(ts.isJsxCallLike(node), true, message);
+	assert.equal(ts.isJsxCallLike(node), true, maybe_Error(message));
 }
 
 export function isJsxChild(
@@ -1532,7 +1554,7 @@ export function isJsxChild(
 		| string
 		| Error = `expected JsxChild, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxChild {
-	assert.equal(ts.isJsxChild(node), true, message);
+	assert.equal(ts.isJsxChild(node), true, maybe_Error(message));
 }
 
 export function isJsxClosingElement(
@@ -1541,7 +1563,7 @@ export function isJsxClosingElement(
 		| string
 		| Error = `expected JsxClosingElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxClosingElement {
-	assert.equal(ts.isJsxClosingElement(node), true, message);
+	assert.equal(ts.isJsxClosingElement(node), true, maybe_Error(message));
 }
 
 export function isJsxClosingFragment(
@@ -1550,7 +1572,7 @@ export function isJsxClosingFragment(
 		| string
 		| Error = `expected JsxClosingFragment, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxClosingFragment {
-	assert.equal(ts.isJsxClosingFragment(node), true, message);
+	assert.equal(ts.isJsxClosingFragment(node), true, maybe_Error(message));
 }
 
 export function isJsxElement(
@@ -1559,7 +1581,7 @@ export function isJsxElement(
 		| string
 		| Error = `expected JsxElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxElement {
-	assert.equal(ts.isJsxElement(node), true, message);
+	assert.equal(ts.isJsxElement(node), true, maybe_Error(message));
 }
 
 export function isJsxExpression(
@@ -1568,7 +1590,7 @@ export function isJsxExpression(
 		| string
 		| Error = `expected JsxExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxExpression {
-	assert.equal(ts.isJsxExpression(node), true, message);
+	assert.equal(ts.isJsxExpression(node), true, maybe_Error(message));
 }
 
 export function isJsxFragment(
@@ -1577,7 +1599,7 @@ export function isJsxFragment(
 		| string
 		| Error = `expected JsxFragment, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxFragment {
-	assert.equal(ts.isJsxFragment(node), true, message);
+	assert.equal(ts.isJsxFragment(node), true, maybe_Error(message));
 }
 
 export function isJsxNamespacedName(
@@ -1586,7 +1608,7 @@ export function isJsxNamespacedName(
 		| string
 		| Error = `expected JsxNamespacedName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxNamespacedName {
-	assert.equal(ts.isJsxNamespacedName(node), true, message);
+	assert.equal(ts.isJsxNamespacedName(node), true, maybe_Error(message));
 }
 
 export function isJsxOpeningElement(
@@ -1595,7 +1617,7 @@ export function isJsxOpeningElement(
 		| string
 		| Error = `expected JsxOpeningElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxOpeningElement {
-	assert.equal(ts.isJsxOpeningElement(node), true, message);
+	assert.equal(ts.isJsxOpeningElement(node), true, maybe_Error(message));
 }
 
 export function isJsxOpeningFragment(
@@ -1604,7 +1626,7 @@ export function isJsxOpeningFragment(
 		| string
 		| Error = `expected JsxOpeningFragment, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxOpeningFragment {
-	assert.equal(ts.isJsxOpeningFragment(node), true, message);
+	assert.equal(ts.isJsxOpeningFragment(node), true, maybe_Error(message));
 }
 
 export function isJsxOpeningLikeElement(
@@ -1613,7 +1635,7 @@ export function isJsxOpeningLikeElement(
 		| string
 		| Error = `expected JsxOpeningLikeElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxOpeningLikeElement {
-	assert.equal(ts.isJsxOpeningLikeElement(node), true, message);
+	assert.equal(ts.isJsxOpeningLikeElement(node), true, maybe_Error(message));
 }
 
 export function isJsxSelfClosingElement(
@@ -1622,7 +1644,7 @@ export function isJsxSelfClosingElement(
 		| string
 		| Error = `expected JsxSelfClosingElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxSelfClosingElement {
-	assert.equal(ts.isJsxSelfClosingElement(node), true, message);
+	assert.equal(ts.isJsxSelfClosingElement(node), true, maybe_Error(message));
 }
 
 export function isJsxSpreadAttribute(
@@ -1631,7 +1653,7 @@ export function isJsxSpreadAttribute(
 		| string
 		| Error = `expected JsxSpreadAttribute, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxSpreadAttribute {
-	assert.equal(ts.isJsxSpreadAttribute(node), true, message);
+	assert.equal(ts.isJsxSpreadAttribute(node), true, maybe_Error(message));
 }
 
 export function isJsxTagNameExpression(
@@ -1640,7 +1662,7 @@ export function isJsxTagNameExpression(
 		| string
 		| Error = `expected JsxTagNameExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxTagNameExpression {
-	assert.equal(ts.isJsxTagNameExpression(node), true, message);
+	assert.equal(ts.isJsxTagNameExpression(node), true, maybe_Error(message));
 }
 
 export function isJsxText(
@@ -1649,7 +1671,7 @@ export function isJsxText(
 		| string
 		| Error = `expected JsxText, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is JsxText {
-	assert.equal(ts.isJsxText(node), true, message);
+	assert.equal(ts.isJsxText(node), true, maybe_Error(message));
 }
 
 export function isLabeledStatement(
@@ -1658,7 +1680,7 @@ export function isLabeledStatement(
 		| string
 		| Error = `expected LabeledStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is LabeledStatement {
-	assert.equal(ts.isLabeledStatement(node), true, message);
+	assert.equal(ts.isLabeledStatement(node), true, maybe_Error(message));
 }
 
 export function isLeftHandSideExpression(
@@ -1667,7 +1689,7 @@ export function isLeftHandSideExpression(
 		| string
 		| Error = `expected LeftHandSideExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is LeftHandSideExpression {
-	assert.equal(ts.isLeftHandSideExpression(node), true, message);
+	assert.equal(ts.isLeftHandSideExpression(node), true, maybe_Error(message));
 }
 
 export function isLiteralExpression(
@@ -1676,7 +1698,7 @@ export function isLiteralExpression(
 		| string
 		| Error = `expected LiteralExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is LiteralExpression {
-	assert.equal(ts.isLiteralExpression(node), true, message);
+	assert.equal(ts.isLiteralExpression(node), true, maybe_Error(message));
 }
 
 export function isLiteralTypeNode(
@@ -1685,7 +1707,7 @@ export function isLiteralTypeNode(
 		| string
 		| Error = `expected LiteralTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is LiteralTypeNode {
-	assert.equal(ts.isLiteralTypeNode(node), true, message);
+	assert.equal(ts.isLiteralTypeNode(node), true, maybe_Error(message));
 }
 
 export function isMappedTypeNode(
@@ -1694,7 +1716,7 @@ export function isMappedTypeNode(
 		| string
 		| Error = `expected MappedTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is MappedTypeNode {
-	assert.equal(ts.isMappedTypeNode(node), true, message);
+	assert.equal(ts.isMappedTypeNode(node), true, maybe_Error(message));
 }
 
 export function isMemberName(
@@ -1703,7 +1725,7 @@ export function isMemberName(
 		| string
 		| Error = `expected MemberName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is MemberName {
-	assert.equal(ts.isMemberName(node), true, message);
+	assert.equal(ts.isMemberName(node), true, maybe_Error(message));
 }
 
 export function isMetaProperty(
@@ -1712,7 +1734,7 @@ export function isMetaProperty(
 		| string
 		| Error = `expected MetaProperty, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is MetaProperty {
-	assert.equal(ts.isMetaProperty(node), true, message);
+	assert.equal(ts.isMetaProperty(node), true, maybe_Error(message));
 }
 
 export function isMethodDeclaration(
@@ -1721,7 +1743,7 @@ export function isMethodDeclaration(
 		| string
 		| Error = `expected MethodDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is MethodDeclaration {
-	assert.equal(ts.isMethodDeclaration(node), true, message);
+	assert.equal(ts.isMethodDeclaration(node), true, maybe_Error(message));
 }
 
 export function isMethodSignature(
@@ -1730,7 +1752,7 @@ export function isMethodSignature(
 		| string
 		| Error = `expected MethodSignature, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is MethodSignature {
-	assert.equal(ts.isMethodSignature(node), true, message);
+	assert.equal(ts.isMethodSignature(node), true, maybe_Error(message));
 }
 
 export function isMinusToken(
@@ -1739,7 +1761,7 @@ export function isMinusToken(
 		| string
 		| Error = `expected MinusToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is MinusToken {
-	assert.equal(ts.isMinusToken(node), true, message);
+	assert.equal(ts.isMinusToken(node), true, maybe_Error(message));
 }
 
 export function isMissingDeclaration(
@@ -1748,7 +1770,7 @@ export function isMissingDeclaration(
 		| string
 		| Error = `expected MissingDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is MissingDeclaration {
-	assert.equal(ts.isMissingDeclaration(node), true, message);
+	assert.equal(ts.isMissingDeclaration(node), true, maybe_Error(message));
 }
 
 export function isModifier(
@@ -1757,7 +1779,7 @@ export function isModifier(
 		| string
 		| Error = `expected Modifier, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is Modifier {
-	assert.equal(ts.isModifier(node), true, message);
+	assert.equal(ts.isModifier(node), true, maybe_Error(message));
 }
 
 export function isModifierLike(
@@ -1766,7 +1788,7 @@ export function isModifierLike(
 		| string
 		| Error = `expected ModifierLike, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ModifierLike {
-	assert.equal(ts.isModifierLike(node), true, message);
+	assert.equal(ts.isModifierLike(node), true, maybe_Error(message));
 }
 
 export function isModuleBlock(
@@ -1775,7 +1797,7 @@ export function isModuleBlock(
 		| string
 		| Error = `expected ModuleBlock, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ModuleBlock {
-	assert.equal(ts.isModuleBlock(node), true, message);
+	assert.equal(ts.isModuleBlock(node), true, maybe_Error(message));
 }
 
 export function isModuleBody(
@@ -1784,7 +1806,7 @@ export function isModuleBody(
 		| string
 		| Error = `expected ModuleBody, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ModuleBody {
-	assert.equal(ts.isModuleBody(node), true, message);
+	assert.equal(ts.isModuleBody(node), true, maybe_Error(message));
 }
 
 export function isModuleDeclaration(
@@ -1793,7 +1815,7 @@ export function isModuleDeclaration(
 		| string
 		| Error = `expected ModuleDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ModuleDeclaration {
-	assert.equal(ts.isModuleDeclaration(node), true, message);
+	assert.equal(ts.isModuleDeclaration(node), true, maybe_Error(message));
 }
 
 export function isModuleExportName(
@@ -1802,7 +1824,7 @@ export function isModuleExportName(
 		| string
 		| Error = `expected ModuleExportName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ModuleExportName {
-	assert.equal(ts.isModuleExportName(node), true, message);
+	assert.equal(ts.isModuleExportName(node), true, maybe_Error(message));
 }
 
 export function isModuleName(
@@ -1811,7 +1833,7 @@ export function isModuleName(
 		| string
 		| Error = `expected ModuleName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ModuleName {
-	assert.equal(ts.isModuleName(node), true, message);
+	assert.equal(ts.isModuleName(node), true, maybe_Error(message));
 }
 
 export function isModuleReference(
@@ -1820,7 +1842,7 @@ export function isModuleReference(
 		| string
 		| Error = `expected ModuleReference, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ModuleReference {
-	assert.equal(ts.isModuleReference(node), true, message);
+	assert.equal(ts.isModuleReference(node), true, maybe_Error(message));
 }
 
 export function isNamedExportBindings(
@@ -1829,7 +1851,7 @@ export function isNamedExportBindings(
 		| string
 		| Error = `expected NamedExportBindings, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NamedExportBindings {
-	assert.equal(ts.isNamedExportBindings(node), true, message);
+	assert.equal(ts.isNamedExportBindings(node), true, maybe_Error(message));
 }
 
 export function isNamedExports(
@@ -1838,7 +1860,7 @@ export function isNamedExports(
 		| string
 		| Error = `expected NamedExports, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NamedExports {
-	assert.equal(ts.isNamedExports(node), true, message);
+	assert.equal(ts.isNamedExports(node), true, maybe_Error(message));
 }
 
 export function isNamedImportBindings(
@@ -1847,7 +1869,7 @@ export function isNamedImportBindings(
 		| string
 		| Error = `expected NamedImportBindings, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NamedImportBindings {
-	assert.equal(ts.isNamedImportBindings(node), true, message);
+	assert.equal(ts.isNamedImportBindings(node), true, maybe_Error(message));
 }
 
 export function isNamedImports(
@@ -1856,7 +1878,7 @@ export function isNamedImports(
 		| string
 		| Error = `expected NamedImports, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NamedImports {
-	assert.equal(ts.isNamedImports(node), true, message);
+	assert.equal(ts.isNamedImports(node), true, maybe_Error(message));
 }
 
 export function isNamedTupleMember(
@@ -1865,7 +1887,7 @@ export function isNamedTupleMember(
 		| string
 		| Error = `expected NamedTupleMember, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NamedTupleMember {
-	assert.equal(ts.isNamedTupleMember(node), true, message);
+	assert.equal(ts.isNamedTupleMember(node), true, maybe_Error(message));
 }
 
 export function isNamespaceExport(
@@ -1874,7 +1896,7 @@ export function isNamespaceExport(
 		| string
 		| Error = `expected NamespaceExport, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NamespaceExport {
-	assert.equal(ts.isNamespaceExport(node), true, message);
+	assert.equal(ts.isNamespaceExport(node), true, maybe_Error(message));
 }
 
 export function isNamespaceExportDeclaration(
@@ -1883,7 +1905,11 @@ export function isNamespaceExportDeclaration(
 		| string
 		| Error = `expected NamespaceExportDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NamespaceExportDeclaration {
-	assert.equal(ts.isNamespaceExportDeclaration(node), true, message);
+	assert.equal(
+		ts.isNamespaceExportDeclaration(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isNamespaceImport(
@@ -1892,7 +1918,7 @@ export function isNamespaceImport(
 		| string
 		| Error = `expected NamespaceImport, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NamespaceImport {
-	assert.equal(ts.isNamespaceImport(node), true, message);
+	assert.equal(ts.isNamespaceImport(node), true, maybe_Error(message));
 }
 
 export function isNewExpression(
@@ -1901,7 +1927,7 @@ export function isNewExpression(
 		| string
 		| Error = `expected NewExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NewExpression {
-	assert.equal(ts.isNewExpression(node), true, message);
+	assert.equal(ts.isNewExpression(node), true, maybe_Error(message));
 }
 
 export function isNonNullChain(
@@ -1910,7 +1936,7 @@ export function isNonNullChain(
 		| string
 		| Error = `expected NonNullChain, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NonNullChain {
-	assert.equal(ts.isNonNullChain(node), true, message);
+	assert.equal(ts.isNonNullChain(node), true, maybe_Error(message));
 }
 
 export function isNonNullExpression(
@@ -1919,7 +1945,7 @@ export function isNonNullExpression(
 		| string
 		| Error = `expected NonNullExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NonNullExpression {
-	assert.equal(ts.isNonNullExpression(node), true, message);
+	assert.equal(ts.isNonNullExpression(node), true, maybe_Error(message));
 }
 
 export function isNoSubstitutionTemplateLiteral(
@@ -1928,7 +1954,11 @@ export function isNoSubstitutionTemplateLiteral(
 		| string
 		| Error = `expected NoSubstitutionTemplateLiteral, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NoSubstitutionTemplateLiteral {
-	assert.equal(ts.isNoSubstitutionTemplateLiteral(node), true, message);
+	assert.equal(
+		ts.isNoSubstitutionTemplateLiteral(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isNotEmittedStatement(
@@ -1937,7 +1967,7 @@ export function isNotEmittedStatement(
 		| string
 		| Error = `expected NotEmittedStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NotEmittedStatement {
-	assert.equal(ts.isNotEmittedStatement(node), true, message);
+	assert.equal(ts.isNotEmittedStatement(node), true, maybe_Error(message));
 }
 
 export function isNumericLiteral(
@@ -1946,7 +1976,7 @@ export function isNumericLiteral(
 		| string
 		| Error = `expected NumericLiteral, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is NumericLiteral {
-	assert.equal(ts.isNumericLiteral(node), true, message);
+	assert.equal(ts.isNumericLiteral(node), true, maybe_Error(message));
 }
 
 export function isObjectBindingPattern(
@@ -1955,7 +1985,7 @@ export function isObjectBindingPattern(
 		| string
 		| Error = `expected ObjectBindingPattern, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ObjectBindingPattern {
-	assert.equal(ts.isObjectBindingPattern(node), true, message);
+	assert.equal(ts.isObjectBindingPattern(node), true, maybe_Error(message));
 }
 
 export function isObjectLiteralElement(
@@ -1964,7 +1994,7 @@ export function isObjectLiteralElement(
 		| string
 		| Error = `expected ObjectLiteralElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ObjectLiteralElement {
-	assert.equal(ts.isObjectLiteralElement(node), true, message);
+	assert.equal(ts.isObjectLiteralElement(node), true, maybe_Error(message));
 }
 
 export function isObjectLiteralElementLike(
@@ -1973,7 +2003,7 @@ export function isObjectLiteralElementLike(
 		| string
 		| Error = `expected ObjectLiteralElementLike, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ObjectLiteralElementLike {
-	assert.equal(ts.isObjectLiteralElementLike(node), true, message);
+	assert.equal(ts.isObjectLiteralElementLike(node), true, maybe_Error(message));
 }
 
 export function isObjectLiteralExpression(
@@ -1982,7 +2012,7 @@ export function isObjectLiteralExpression(
 		| string
 		| Error = `expected ObjectLiteralExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ObjectLiteralExpression {
-	assert.equal(ts.isObjectLiteralExpression(node), true, message);
+	assert.equal(ts.isObjectLiteralExpression(node), true, maybe_Error(message));
 }
 
 export function isOmittedExpression(
@@ -1991,7 +2021,7 @@ export function isOmittedExpression(
 		| string
 		| Error = `expected OmittedExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is OmittedExpression {
-	assert.equal(ts.isOmittedExpression(node), true, message);
+	assert.equal(ts.isOmittedExpression(node), true, maybe_Error(message));
 }
 
 export function isOptionalTypeNode(
@@ -2000,7 +2030,7 @@ export function isOptionalTypeNode(
 		| string
 		| Error = `expected OptionalTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is OptionalTypeNode {
-	assert.equal(ts.isOptionalTypeNode(node), true, message);
+	assert.equal(ts.isOptionalTypeNode(node), true, maybe_Error(message));
 }
 
 export function isParameter(
@@ -2009,7 +2039,7 @@ export function isParameter(
 		| string
 		| Error = `expected ParameterDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ParameterDeclaration {
-	assert.equal(ts.isParameter(node), true, message);
+	assert.equal(ts.isParameter(node), true, maybe_Error(message));
 }
 
 export function isParenthesizedExpression(
@@ -2018,7 +2048,7 @@ export function isParenthesizedExpression(
 		| string
 		| Error = `expected ParenthesizedExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ParenthesizedExpression {
-	assert.equal(ts.isParenthesizedExpression(node), true, message);
+	assert.equal(ts.isParenthesizedExpression(node), true, maybe_Error(message));
 }
 
 export function isParenthesizedTypeNode(
@@ -2027,7 +2057,7 @@ export function isParenthesizedTypeNode(
 		| string
 		| Error = `expected ParenthesizedTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ParenthesizedTypeNode {
-	assert.equal(ts.isParenthesizedTypeNode(node), true, message);
+	assert.equal(ts.isParenthesizedTypeNode(node), true, maybe_Error(message));
 }
 
 export function isPartiallyEmittedExpression(
@@ -2036,7 +2066,11 @@ export function isPartiallyEmittedExpression(
 		| string
 		| Error = `expected PartiallyEmittedExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PartiallyEmittedExpression {
-	assert.equal(ts.isPartiallyEmittedExpression(node), true, message);
+	assert.equal(
+		ts.isPartiallyEmittedExpression(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isPlusToken(
@@ -2045,7 +2079,7 @@ export function isPlusToken(
 		| string
 		| Error = `expected PlusToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PlusToken {
-	assert.equal(ts.isPlusToken(node), true, message);
+	assert.equal(ts.isPlusToken(node), true, maybe_Error(message));
 }
 
 export function isPostfixUnaryExpression(
@@ -2054,7 +2088,7 @@ export function isPostfixUnaryExpression(
 		| string
 		| Error = `expected PostfixUnaryExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PostfixUnaryExpression {
-	assert.equal(ts.isPostfixUnaryExpression(node), true, message);
+	assert.equal(ts.isPostfixUnaryExpression(node), true, maybe_Error(message));
 }
 
 export function isPrefixUnaryExpression(
@@ -2063,7 +2097,7 @@ export function isPrefixUnaryExpression(
 		| string
 		| Error = `expected PrefixUnaryExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PrefixUnaryExpression {
-	assert.equal(ts.isPrefixUnaryExpression(node), true, message);
+	assert.equal(ts.isPrefixUnaryExpression(node), true, maybe_Error(message));
 }
 
 export function isPrivateIdentifier(
@@ -2072,7 +2106,7 @@ export function isPrivateIdentifier(
 		| string
 		| Error = `expected PrivateIdentifier, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PrivateIdentifier {
-	assert.equal(ts.isPrivateIdentifier(node), true, message);
+	assert.equal(ts.isPrivateIdentifier(node), true, maybe_Error(message));
 }
 
 export function isPropertyAccessChain(
@@ -2081,7 +2115,7 @@ export function isPropertyAccessChain(
 		| string
 		| Error = `expected PropertyAccessChain, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PropertyAccessChain {
-	assert.equal(ts.isPropertyAccessChain(node), true, message);
+	assert.equal(ts.isPropertyAccessChain(node), true, maybe_Error(message));
 }
 
 export function isPropertyAccessExpression(
@@ -2090,7 +2124,7 @@ export function isPropertyAccessExpression(
 		| string
 		| Error = `expected PropertyAccessExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PropertyAccessExpression {
-	assert.equal(ts.isPropertyAccessExpression(node), true, message);
+	assert.equal(ts.isPropertyAccessExpression(node), true, maybe_Error(message));
 }
 
 export function isPropertyAssignment(
@@ -2099,7 +2133,7 @@ export function isPropertyAssignment(
 		| string
 		| Error = `expected PropertyAssignment, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PropertyAssignment {
-	assert.equal(ts.isPropertyAssignment(node), true, message);
+	assert.equal(ts.isPropertyAssignment(node), true, maybe_Error(message));
 }
 
 export function isPropertyDeclaration(
@@ -2108,7 +2142,7 @@ export function isPropertyDeclaration(
 		| string
 		| Error = `expected PropertyDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PropertyDeclaration {
-	assert.equal(ts.isPropertyDeclaration(node), true, message);
+	assert.equal(ts.isPropertyDeclaration(node), true, maybe_Error(message));
 }
 
 export function isPropertyName(
@@ -2117,7 +2151,7 @@ export function isPropertyName(
 		| string
 		| Error = `expected PropertyName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PropertyName {
-	assert.equal(ts.isPropertyName(node), true, message);
+	assert.equal(ts.isPropertyName(node), true, maybe_Error(message));
 }
 
 export function isPropertySignature(
@@ -2126,7 +2160,7 @@ export function isPropertySignature(
 		| string
 		| Error = `expected PropertySignature, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is PropertySignature {
-	assert.equal(ts.isPropertySignature(node), true, message);
+	assert.equal(ts.isPropertySignature(node), true, maybe_Error(message));
 }
 
 export function isQualifiedName(
@@ -2135,7 +2169,7 @@ export function isQualifiedName(
 		| string
 		| Error = `expected QualifiedName, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is QualifiedName {
-	assert.equal(ts.isQualifiedName(node), true, message);
+	assert.equal(ts.isQualifiedName(node), true, maybe_Error(message));
 }
 
 export function isQuestionDotToken(
@@ -2144,7 +2178,7 @@ export function isQuestionDotToken(
 		| string
 		| Error = `expected QuestionDotToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is QuestionDotToken {
-	assert.equal(ts.isQuestionDotToken(node), true, message);
+	assert.equal(ts.isQuestionDotToken(node), true, maybe_Error(message));
 }
 
 export function isQuestionToken(
@@ -2153,7 +2187,7 @@ export function isQuestionToken(
 		| string
 		| Error = `expected QuestionToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is QuestionToken {
-	assert.equal(ts.isQuestionToken(node), true, message);
+	assert.equal(ts.isQuestionToken(node), true, maybe_Error(message));
 }
 
 export function isRegularExpressionLiteral(
@@ -2162,7 +2196,7 @@ export function isRegularExpressionLiteral(
 		| string
 		| Error = `expected RegularExpressionLiteral, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is RegularExpressionLiteral {
-	assert.equal(ts.isRegularExpressionLiteral(node), true, message);
+	assert.equal(ts.isRegularExpressionLiteral(node), true, maybe_Error(message));
 }
 
 export function isRestTypeNode(
@@ -2171,7 +2205,7 @@ export function isRestTypeNode(
 		| string
 		| Error = `expected RestTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is RestTypeNode {
-	assert.equal(ts.isRestTypeNode(node), true, message);
+	assert.equal(ts.isRestTypeNode(node), true, maybe_Error(message));
 }
 
 export function isReturnStatement(
@@ -2180,7 +2214,7 @@ export function isReturnStatement(
 		| string
 		| Error = `expected ReturnStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ReturnStatement {
-	assert.equal(ts.isReturnStatement(node), true, message);
+	assert.equal(ts.isReturnStatement(node), true, maybe_Error(message));
 }
 
 export function isSatisfiesExpression(
@@ -2189,7 +2223,7 @@ export function isSatisfiesExpression(
 		| string
 		| Error = `expected SatisfiesExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is SatisfiesExpression {
-	assert.equal(ts.isSatisfiesExpression(node), true, message);
+	assert.equal(ts.isSatisfiesExpression(node), true, maybe_Error(message));
 }
 
 export function isSemicolonClassElement(
@@ -2198,7 +2232,7 @@ export function isSemicolonClassElement(
 		| string
 		| Error = `expected SemicolonClassElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is SemicolonClassElement {
-	assert.equal(ts.isSemicolonClassElement(node), true, message);
+	assert.equal(ts.isSemicolonClassElement(node), true, maybe_Error(message));
 }
 
 export function isSetAccessor(
@@ -2207,7 +2241,7 @@ export function isSetAccessor(
 		| string
 		| Error = `expected SetAccessorDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is SetAccessorDeclaration {
-	assert.equal(ts.isSetAccessor(node), true, message);
+	assert.equal(ts.isSetAccessor(node), true, maybe_Error(message));
 }
 
 export function isSetAccessorDeclaration(
@@ -2216,7 +2250,7 @@ export function isSetAccessorDeclaration(
 		| string
 		| Error = `expected SetAccessorDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is SetAccessorDeclaration {
-	assert.equal(ts.isSetAccessorDeclaration(node), true, message);
+	assert.equal(ts.isSetAccessorDeclaration(node), true, maybe_Error(message));
 }
 
 export function isShorthandPropertyAssignment(
@@ -2225,7 +2259,11 @@ export function isShorthandPropertyAssignment(
 		| string
 		| Error = `expected ShorthandPropertyAssignment, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ShorthandPropertyAssignment {
-	assert.equal(ts.isShorthandPropertyAssignment(node), true, message);
+	assert.equal(
+		ts.isShorthandPropertyAssignment(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isSourceFile(
@@ -2234,7 +2272,7 @@ export function isSourceFile(
 		| string
 		| Error = `expected SourceFile, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is SourceFile {
-	assert.equal(ts.isSourceFile(node), true, message);
+	assert.equal(ts.isSourceFile(node), true, maybe_Error(message));
 }
 
 export function isSpreadAssignment(
@@ -2243,7 +2281,7 @@ export function isSpreadAssignment(
 		| string
 		| Error = `expected SpreadAssignment, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is SpreadAssignment {
-	assert.equal(ts.isSpreadAssignment(node), true, message);
+	assert.equal(ts.isSpreadAssignment(node), true, maybe_Error(message));
 }
 
 export function isSpreadElement(
@@ -2252,7 +2290,7 @@ export function isSpreadElement(
 		| string
 		| Error = `expected SpreadElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is SpreadElement {
-	assert.equal(ts.isSpreadElement(node), true, message);
+	assert.equal(ts.isSpreadElement(node), true, maybe_Error(message));
 }
 
 export function isStatement(
@@ -2261,7 +2299,7 @@ export function isStatement(
 		| string
 		| Error = `expected Statement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is Statement {
-	assert.equal(ts.isStatement(node), true, message);
+	assert.equal(ts.isStatement(node), true, maybe_Error(message));
 }
 
 export function isStringLiteral(
@@ -2270,7 +2308,7 @@ export function isStringLiteral(
 		| string
 		| Error = `expected StringLiteral, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is StringLiteral {
-	assert.equal(ts.isStringLiteral(node), true, message);
+	assert.equal(ts.isStringLiteral(node), true, maybe_Error(message));
 }
 
 export function isSwitchStatement(
@@ -2279,7 +2317,7 @@ export function isSwitchStatement(
 		| string
 		| Error = `expected SwitchStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is SwitchStatement {
-	assert.equal(ts.isSwitchStatement(node), true, message);
+	assert.equal(ts.isSwitchStatement(node), true, maybe_Error(message));
 }
 
 export function isSyntheticExpression(
@@ -2288,7 +2326,7 @@ export function isSyntheticExpression(
 		| string
 		| Error = `expected SyntheticExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is SyntheticExpression {
-	assert.equal(ts.isSyntheticExpression(node), true, message);
+	assert.equal(ts.isSyntheticExpression(node), true, maybe_Error(message));
 }
 
 export function isTaggedTemplateExpression(
@@ -2297,7 +2335,7 @@ export function isTaggedTemplateExpression(
 		| string
 		| Error = `expected TaggedTemplateExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TaggedTemplateExpression {
-	assert.equal(ts.isTaggedTemplateExpression(node), true, message);
+	assert.equal(ts.isTaggedTemplateExpression(node), true, maybe_Error(message));
 }
 
 export function isTemplateExpression(
@@ -2306,7 +2344,7 @@ export function isTemplateExpression(
 		| string
 		| Error = `expected TemplateExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TemplateExpression {
-	assert.equal(ts.isTemplateExpression(node), true, message);
+	assert.equal(ts.isTemplateExpression(node), true, maybe_Error(message));
 }
 
 export function isTemplateHead(
@@ -2315,7 +2353,7 @@ export function isTemplateHead(
 		| string
 		| Error = `expected TemplateHead, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TemplateHead {
-	assert.equal(ts.isTemplateHead(node), true, message);
+	assert.equal(ts.isTemplateHead(node), true, maybe_Error(message));
 }
 
 export function isTemplateLiteral(
@@ -2324,7 +2362,7 @@ export function isTemplateLiteral(
 		| string
 		| Error = `expected TemplateLiteral, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TemplateLiteral {
-	assert.equal(ts.isTemplateLiteral(node), true, message);
+	assert.equal(ts.isTemplateLiteral(node), true, maybe_Error(message));
 }
 
 export function isTemplateLiteralToken(
@@ -2333,7 +2371,7 @@ export function isTemplateLiteralToken(
 		| string
 		| Error = `expected TemplateLiteralToken, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TemplateLiteralToken {
-	assert.equal(ts.isTemplateLiteralToken(node), true, message);
+	assert.equal(ts.isTemplateLiteralToken(node), true, maybe_Error(message));
 }
 
 export function isTemplateLiteralTypeNode(
@@ -2342,7 +2380,7 @@ export function isTemplateLiteralTypeNode(
 		| string
 		| Error = `expected TemplateLiteralTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TemplateLiteralTypeNode {
-	assert.equal(ts.isTemplateLiteralTypeNode(node), true, message);
+	assert.equal(ts.isTemplateLiteralTypeNode(node), true, maybe_Error(message));
 }
 
 export function isTemplateLiteralTypeSpan(
@@ -2351,7 +2389,7 @@ export function isTemplateLiteralTypeSpan(
 		| string
 		| Error = `expected TemplateLiteralTypeSpan, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TemplateLiteralTypeSpan {
-	assert.equal(ts.isTemplateLiteralTypeSpan(node), true, message);
+	assert.equal(ts.isTemplateLiteralTypeSpan(node), true, maybe_Error(message));
 }
 
 export function isTemplateMiddle(
@@ -2360,7 +2398,7 @@ export function isTemplateMiddle(
 		| string
 		| Error = `expected TemplateMiddle, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TemplateMiddle {
-	assert.equal(ts.isTemplateMiddle(node), true, message);
+	assert.equal(ts.isTemplateMiddle(node), true, maybe_Error(message));
 }
 
 export function isTemplateSpan(
@@ -2369,7 +2407,7 @@ export function isTemplateSpan(
 		| string
 		| Error = `expected TemplateSpan, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TemplateSpan {
-	assert.equal(ts.isTemplateSpan(node), true, message);
+	assert.equal(ts.isTemplateSpan(node), true, maybe_Error(message));
 }
 
 export function isTemplateTail(
@@ -2378,7 +2416,7 @@ export function isTemplateTail(
 		| string
 		| Error = `expected TemplateTail, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TemplateTail {
-	assert.equal(ts.isTemplateTail(node), true, message);
+	assert.equal(ts.isTemplateTail(node), true, maybe_Error(message));
 }
 
 export function isThisTypeNode(
@@ -2387,7 +2425,7 @@ export function isThisTypeNode(
 		| string
 		| Error = `expected ThisTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ThisTypeNode {
-	assert.equal(ts.isThisTypeNode(node), true, message);
+	assert.equal(ts.isThisTypeNode(node), true, maybe_Error(message));
 }
 
 export function isThrowStatement(
@@ -2396,7 +2434,7 @@ export function isThrowStatement(
 		| string
 		| Error = `expected ThrowStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is ThrowStatement {
-	assert.equal(ts.isThrowStatement(node), true, message);
+	assert.equal(ts.isThrowStatement(node), true, maybe_Error(message));
 }
 
 export function isTryStatement(
@@ -2405,7 +2443,7 @@ export function isTryStatement(
 		| string
 		| Error = `expected TryStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TryStatement {
-	assert.equal(ts.isTryStatement(node), true, message);
+	assert.equal(ts.isTryStatement(node), true, maybe_Error(message));
 }
 
 export function isTupleTypeNode(
@@ -2414,7 +2452,7 @@ export function isTupleTypeNode(
 		| string
 		| Error = `expected TupleTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TupleTypeNode {
-	assert.equal(ts.isTupleTypeNode(node), true, message);
+	assert.equal(ts.isTupleTypeNode(node), true, maybe_Error(message));
 }
 
 export function isTypeAliasDeclaration(
@@ -2423,7 +2461,7 @@ export function isTypeAliasDeclaration(
 		| string
 		| Error = `expected TypeAliasDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeAliasDeclaration {
-	assert.equal(ts.isTypeAliasDeclaration(node), true, message);
+	assert.equal(ts.isTypeAliasDeclaration(node), true, maybe_Error(message));
 }
 
 export function isTypeAssertionExpression(
@@ -2432,7 +2470,7 @@ export function isTypeAssertionExpression(
 		| string
 		| Error = `expected TypeAssertion, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeAssertion {
-	assert.equal(ts.isTypeAssertionExpression(node), true, message);
+	assert.equal(ts.isTypeAssertionExpression(node), true, maybe_Error(message));
 }
 
 export function isTypeElement(
@@ -2441,7 +2479,7 @@ export function isTypeElement(
 		| string
 		| Error = `expected TypeElement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeElement {
-	assert.equal(ts.isTypeElement(node), true, message);
+	assert.equal(ts.isTypeElement(node), true, maybe_Error(message));
 }
 
 export function isTypeLiteralNode(
@@ -2450,7 +2488,7 @@ export function isTypeLiteralNode(
 		| string
 		| Error = `expected TypeLiteralNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeLiteralNode {
-	assert.equal(ts.isTypeLiteralNode(node), true, message);
+	assert.equal(ts.isTypeLiteralNode(node), true, maybe_Error(message));
 }
 
 export function isTypeNode(
@@ -2459,7 +2497,7 @@ export function isTypeNode(
 		| string
 		| Error = `expected TypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeNode {
-	assert.equal(ts.isTypeNode(node), true, message);
+	assert.equal(ts.isTypeNode(node), true, maybe_Error(message));
 }
 
 export function isTypeOfExpression(
@@ -2468,7 +2506,7 @@ export function isTypeOfExpression(
 		| string
 		| Error = `expected TypeOfExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeOfExpression {
-	assert.equal(ts.isTypeOfExpression(node), true, message);
+	assert.equal(ts.isTypeOfExpression(node), true, maybe_Error(message));
 }
 
 export function isTypeOnlyExportDeclaration(
@@ -2477,7 +2515,11 @@ export function isTypeOnlyExportDeclaration(
 		| string
 		| Error = `expected TypeOnlyExportDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeOnlyExportDeclaration {
-	assert.equal(ts.isTypeOnlyExportDeclaration(node), true, message);
+	assert.equal(
+		ts.isTypeOnlyExportDeclaration(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isTypeOnlyImportDeclaration(
@@ -2486,7 +2528,11 @@ export function isTypeOnlyImportDeclaration(
 		| string
 		| Error = `expected TypeOnlyImportDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeOnlyImportDeclaration {
-	assert.equal(ts.isTypeOnlyImportDeclaration(node), true, message);
+	assert.equal(
+		ts.isTypeOnlyImportDeclaration(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isTypeOnlyImportOrExportDeclaration(
@@ -2495,7 +2541,11 @@ export function isTypeOnlyImportOrExportDeclaration(
 		| string
 		| Error = `expected TypeOnlyAliasDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeOnlyAliasDeclaration {
-	assert.equal(ts.isTypeOnlyImportOrExportDeclaration(node), true, message);
+	assert.equal(
+		ts.isTypeOnlyImportOrExportDeclaration(node),
+		true,
+		maybe_Error(message),
+	);
 }
 
 export function isTypeOperatorNode(
@@ -2504,7 +2554,7 @@ export function isTypeOperatorNode(
 		| string
 		| Error = `expected TypeOperatorNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeOperatorNode {
-	assert.equal(ts.isTypeOperatorNode(node), true, message);
+	assert.equal(ts.isTypeOperatorNode(node), true, maybe_Error(message));
 }
 
 export function isTypeParameterDeclaration(
@@ -2513,7 +2563,7 @@ export function isTypeParameterDeclaration(
 		| string
 		| Error = `expected TypeParameterDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeParameterDeclaration {
-	assert.equal(ts.isTypeParameterDeclaration(node), true, message);
+	assert.equal(ts.isTypeParameterDeclaration(node), true, maybe_Error(message));
 }
 
 export function isTypePredicateNode(
@@ -2522,7 +2572,7 @@ export function isTypePredicateNode(
 		| string
 		| Error = `expected TypePredicateNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypePredicateNode {
-	assert.equal(ts.isTypePredicateNode(node), true, message);
+	assert.equal(ts.isTypePredicateNode(node), true, maybe_Error(message));
 }
 
 export function isTypeQueryNode(
@@ -2531,7 +2581,7 @@ export function isTypeQueryNode(
 		| string
 		| Error = `expected TypeQueryNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeQueryNode {
-	assert.equal(ts.isTypeQueryNode(node), true, message);
+	assert.equal(ts.isTypeQueryNode(node), true, maybe_Error(message));
 }
 
 export function isTypeReferenceNode(
@@ -2540,7 +2590,7 @@ export function isTypeReferenceNode(
 		| string
 		| Error = `expected TypeReferenceNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is TypeReferenceNode {
-	assert.equal(ts.isTypeReferenceNode(node), true, message);
+	assert.equal(ts.isTypeReferenceNode(node), true, maybe_Error(message));
 }
 
 export function isUnionTypeNode(
@@ -2549,7 +2599,7 @@ export function isUnionTypeNode(
 		| string
 		| Error = `expected UnionTypeNode, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is UnionTypeNode {
-	assert.equal(ts.isUnionTypeNode(node), true, message);
+	assert.equal(ts.isUnionTypeNode(node), true, maybe_Error(message));
 }
 
 export function isVariableDeclaration(
@@ -2558,7 +2608,7 @@ export function isVariableDeclaration(
 		| string
 		| Error = `expected VariableDeclaration, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is VariableDeclaration {
-	assert.equal(ts.isVariableDeclaration(node), true, message);
+	assert.equal(ts.isVariableDeclaration(node), true, maybe_Error(message));
 }
 
 export function isVariableDeclarationList(
@@ -2567,7 +2617,7 @@ export function isVariableDeclarationList(
 		| string
 		| Error = `expected VariableDeclarationList, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is VariableDeclarationList {
-	assert.equal(ts.isVariableDeclarationList(node), true, message);
+	assert.equal(ts.isVariableDeclarationList(node), true, maybe_Error(message));
 }
 
 export function isVariableStatement(
@@ -2576,7 +2626,7 @@ export function isVariableStatement(
 		| string
 		| Error = `expected VariableStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is VariableStatement {
-	assert.equal(ts.isVariableStatement(node), true, message);
+	assert.equal(ts.isVariableStatement(node), true, maybe_Error(message));
 }
 
 export function isVoidExpression(
@@ -2585,7 +2635,7 @@ export function isVoidExpression(
 		| string
 		| Error = `expected VoidExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is VoidExpression {
-	assert.equal(ts.isVoidExpression(node), true, message);
+	assert.equal(ts.isVoidExpression(node), true, maybe_Error(message));
 }
 
 export function isWhileStatement(
@@ -2594,7 +2644,7 @@ export function isWhileStatement(
 		| string
 		| Error = `expected WhileStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is WhileStatement {
-	assert.equal(ts.isWhileStatement(node), true, message);
+	assert.equal(ts.isWhileStatement(node), true, maybe_Error(message));
 }
 
 export function isWithStatement(
@@ -2603,7 +2653,7 @@ export function isWithStatement(
 		| string
 		| Error = `expected WithStatement, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is WithStatement {
-	assert.equal(ts.isWithStatement(node), true, message);
+	assert.equal(ts.isWithStatement(node), true, maybe_Error(message));
 }
 
 export function isYieldExpression(
@@ -2612,7 +2662,7 @@ export function isYieldExpression(
 		| string
 		| Error = `expected YieldExpression, received ${ts.SyntaxKind[node.kind]}`,
 ): asserts node is YieldExpression {
-	assert.equal(ts.isYieldExpression(node), true, message);
+	assert.equal(ts.isYieldExpression(node), true, maybe_Error(message));
 }
 
 export default {
